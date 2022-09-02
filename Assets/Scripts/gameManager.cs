@@ -58,6 +58,7 @@ public class gameManager : MonoBehaviour
             }
         }
     }
+
     public void CursorLockPause()
     {
         Cursor.visible = true;

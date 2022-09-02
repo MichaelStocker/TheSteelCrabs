@@ -923,6 +923,10 @@ PrefabInstance:
       value: 90
       objectReference: {fileID: 0}
     - target: {fileID: 2425369541821612665, guid: 96c92a196eefd4546b8f1a0f28a1f472, type: 3}
+      propertyPath: playerSpeed
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2425369541821612665, guid: 96c92a196eefd4546b8f1a0f28a1f472, type: 3}
       propertyPath: playerHealth
       value: 5
       objectReference: {fileID: 0}

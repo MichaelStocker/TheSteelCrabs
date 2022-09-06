@@ -17,23 +17,26 @@ public class StartGameTimer : MonoBehaviour
 
     IEnumerator CountDownStart()
     {
-
+        //Pauses game
+        Time.timeScale = 0;
+        
         while(countDownTimer != 0)
         {
             //Sets text to int's value
-            Thread.Sleep(1000);
             countDownDisplay.text = countDownTimer.ToString();
 
             //Waits a second
-            yield return null;
+            yield return new WaitForSecondsRealtime(1f);
 
             //Decrement the int
             countDownTimer--;
         }
 
+        //Resumes game
+        Time.timeScale = 1;
+
         //Lets player know they can move now
-        Thread.Sleep(1000);
-        countDownDisplay.text = "Start!!!";
+        countDownDisplay.text = "Eliminate All Enemies";
 
         //Disables the text getting start off the screen
         yield return new WaitForSeconds(1f);

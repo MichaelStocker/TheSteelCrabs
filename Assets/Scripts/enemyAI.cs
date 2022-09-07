@@ -24,7 +24,7 @@ public class enemyAI : MonoBehaviour, IDamageable
     // Start is called before the first frame update
     void Start()
     {
-        //agent.SetDestination(gameManager.instance.player.transform.position);
+        gameManager.instance.EnemyIncrement();
     }
 
     // Update is called once per frame
@@ -49,11 +49,17 @@ public class enemyAI : MonoBehaviour, IDamageable
         Quaternion rotation = Quaternion.LookRotation(playerDir);
         transform.rotation = Quaternion.Lerp(transform.rotation, rotation,Time.deltaTime * playerFaceSpeed);
     }
+
     public void TakeDamage(int dmg)
     {
         hP -= dmg;
         StartCoroutine(FlashColor());
-        if (hP <= 0) Destroy(gameObject);
+
+        if (hP <= 0)
+        {
+            gameManager.instance.EnemyDecrement();
+            Destroy(gameObject);
+        }
     }
 
     IEnumerator FlashColor()

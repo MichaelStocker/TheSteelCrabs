@@ -6,6 +6,7 @@ public class scopeController : MonoBehaviour
 {
     [SerializeField] GameObject scopeMask;
     bool isAiming;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -15,7 +16,6 @@ public class scopeController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         ScopeOverlayToggle(isAiming);
     }
     void ScopeOverlayToggle(bool temp)

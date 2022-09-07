@@ -48,13 +48,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 2425369541821612668}
-  mainCam: {fileID: 0}
-  playerSpeed: 50
-  jumpHeight: 10
-  gravityValue: 15
+  mainCam: {fileID: 2425369542697125356}
+  playerHealth: 5
+  playerSpeed: 15
+  jumpHeight: 2
+  gravityValue: 10
   jumpsMax: 2
   fireRate: 0.1
-  shootDistance: 3
+  shootDistance: 100
   shootDamage: 1
 --- !u!33 &2425369541821612666
 MeshFilter:
@@ -116,7 +117,7 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 2
+  m_Height: 1.8
   m_Radius: 0.5
   m_SlopeLimit: 45
   m_StepOffset: 0.3
@@ -151,7 +152,7 @@ Transform:
   m_GameObject: {fileID: 2425369542697125358}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.2198, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2425369541821612664}
   m_RootOrder: 0
@@ -168,8 +169,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98c8454699e108e4bb5682c18aabf760, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sensHor: 350
-  sensVert: 350
+  sensHor: 800
+  sensVert: 800
   lockVertMin: -75
   lockVertMax: 75
   invert: 0

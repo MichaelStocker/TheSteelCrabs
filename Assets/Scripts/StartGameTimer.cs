@@ -17,7 +17,8 @@ public class StartGameTimer : MonoBehaviour
 
     IEnumerator CountDownStart()
     {
-        //Pauses game
+        //Pauses game & turns off player functionality
+        gameManager.instance.playerScript.enabled = false;
         Time.timeScale = 0;
         
         while(countDownTimer != 0)
@@ -32,8 +33,9 @@ public class StartGameTimer : MonoBehaviour
             countDownTimer--;
         }
 
-        //Resumes game
+        //Resumes game & gives back player functionality
         Time.timeScale = 1;
+        gameManager.instance.playerScript.enabled = true;
 
         //Lets player know they can move now
         countDownDisplay.text = "Eliminate All Enemies";

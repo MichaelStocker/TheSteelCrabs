@@ -51,7 +51,7 @@ MonoBehaviour:
   mainCam: {fileID: 2425369542697125356}
   playerHealth: 5
   playerSpeed: 15
-  jumpHeight: 2
+  jumpHeight: 10
   gravityValue: 10
   jumpsMax: 2
   fireRate: 0.1

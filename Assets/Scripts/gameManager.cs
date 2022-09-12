@@ -12,25 +12,23 @@ public class gameManager : MonoBehaviour
     public playerController playerScript;
     public GameObject playerSpawnPos;
 
+    public Camera cam;
+    public GameObject scopeMask;
+    public GameObject basicReticle;
+
     public GameObject menuCurrentlyOpen;
     public GameObject pauseMenu;
     public GameObject playerDeadMenu;
     public GameObject winMenu;
-    [Range(3, 10)] [SerializeField] int countDownTimer;
     public GameObject playerDamage;
 
     public Image HPBar;
-    public Text countDownDisplay;
     public TextMeshProUGUI enemyCounter;
 
-    public Camera cam;
-    public GameObject scopeMask;
-    public GameObject basicReticle;
     public float zoomMult;
     public float defaultFOV;
 
     public int enemyCount;
-    public bool isCounting;
     public bool isPaused;
     float timeScaleOrig;
 
@@ -45,15 +43,12 @@ public class gameManager : MonoBehaviour
 
         timeScaleOrig = Time.timeScale;
         defaultFOV = cam.fieldOfView;
-
-        isCounting = true;
-        StartCoroutine(CountDownStart());
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Cancel") && menuCurrentlyOpen != playerDeadMenu && menuCurrentlyOpen != winMenu && isCounting != true)
+        if (Input.GetButtonDown("Cancel") && menuCurrentlyOpen != playerDeadMenu && menuCurrentlyOpen != winMenu)
         {
 
             isPaused = !isPaused;
@@ -64,7 +59,7 @@ public class gameManager : MonoBehaviour
         }
         if (!isPaused)
         {
-            if (Input.GetMouseButton(1) && isCounting == false)
+            if (Input.GetMouseButton(1))
             {
                 ZoomCamera(defaultFOV / zoomMult);
                 scopeMask.SetActive(true);
@@ -107,7 +102,7 @@ public class gameManager : MonoBehaviour
     {
         enemyCount--;
         enemyCounter.text = enemyCount.ToString("F0");
-        StartCoroutine(CheckEnemyTotal());
+        StartCoroutine(checkEnemyTotal());
     }
 
     public void EnemyIncrement()
@@ -117,7 +112,7 @@ public class gameManager : MonoBehaviour
 
     }
 
-    IEnumerator CheckEnemyTotal()
+    IEnumerator checkEnemyTotal()
     {
         if (enemyCount <= 0)
         {
@@ -126,37 +121,6 @@ public class gameManager : MonoBehaviour
             menuCurrentlyOpen.SetActive(true);
             CursorLockPause();
         }
-    }
-
-    IEnumerator CountDownStart()
-    {
-        //Pauses game & turns off player functionality
-        gameManager.instance.playerScript.enabled = false;
-        Time.timeScale = 0;
-
-        while (countDownTimer != 0)
-        {
-            //Sets text to int's value
-            countDownDisplay.text = countDownTimer.ToString();
-
-            //Waits a second
-            yield return new WaitForSecondsRealtime(1f);
-
-            //Decrement the int
-            countDownTimer--;
-        }
-
-        //Resumes game & gives back player functionality
-        Time.timeScale = 1;
-        gameManager.instance.playerScript.enabled = true;
-
-        //Lets player know they can move now
-        countDownDisplay.text = "Eliminate All Enemies";
-
-        //Disables the text getting start off the screen
-        yield return new WaitForSeconds(1f);
-        countDownDisplay.gameObject.SetActive(false);
-        isCounting = false;
     }
 
     void ZoomCamera(float target)

@@ -20,26 +20,48 @@ public class enemyAI : MonoBehaviour, IDamageable
     
     Vector3 playerDir;
     bool isShooting;
-    
+    public bool playerInRange;
+    Vector3 lastPlayerPos;
+    float stoppingDistanceOrig;
+
     // Start is called before the first frame update
     void Start()
     {
         gameManager.instance.EnemyIncrement();
+        lastPlayerPos = transform.position;
+        stoppingDistanceOrig = agent.stoppingDistance;
     }
 
     // Update is called once per frame
     void Update()
     {
         playerDir = gameManager.instance.player.transform.position - transform.position;
-
-        agent.SetDestination(gameManager.instance.player.transform.position);
-        if (agent.remainingDistance <= agent.stoppingDistance)
+        //if player is in range, enemy will move towards him. Else stand still.
+        if (playerInRange)
         {
-            if (!isShooting)
-                StartCoroutine(Shoot());
-            
-            FacePlayer();
-            
+            canSeePlayer();
+        }
+        else
+        {
+            agent.SetDestination(lastPlayerPos);
+            agent.stoppingDistance = 0;
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            playerInRange = true;
+
+        }
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            playerInRange = false;
+            lastPlayerPos = gameManager.instance.player.transform.position;
         }
     }
 
@@ -50,9 +72,36 @@ public class enemyAI : MonoBehaviour, IDamageable
         transform.rotation = Quaternion.Lerp(transform.rotation, rotation,Time.deltaTime * playerFaceSpeed);
     }
 
+    void canSeePlayer()
+    {
+        RaycastHit hit;
+
+        if (Physics.Raycast(transform.position, playerDir, out hit))
+        {
+            Debug.DrawRay(transform.position, playerDir);
+            if (hit.collider.CompareTag("Player"))
+            {
+                agent.SetDestination(gameManager.instance.player.transform.position);
+                agent.stoppingDistance = stoppingDistanceOrig;
+                //if the distance is < or = the agent then face the player.
+                if (agent.stoppingDistance <= agent.remainingDistance)
+                {
+                    FacePlayer();
+                }
+                if (!isShooting)
+                {
+                    StartCoroutine(Shoot());
+                }
+            }
+        }
+    }
+
     public void TakeDamage(int dmg)
     {
         hP -= dmg;
+
+        lastPlayerPos = gameManager.instance.player.transform.position;
+
         StartCoroutine(FlashColor());
 
         if (hP <= 0)

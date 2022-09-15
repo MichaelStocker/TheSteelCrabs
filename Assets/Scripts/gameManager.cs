@@ -23,7 +23,6 @@ public class gameManager : MonoBehaviour
     public Text countDownDisplay;
     public TextMeshProUGUI enemyCounter;
 
-    public Camera cam;
     public GameObject scopeMask;
     public GameObject basicReticle;
     public float zoomMult;
@@ -44,7 +43,7 @@ public class gameManager : MonoBehaviour
         playerSpawnPos = GameObject.Find("Player Spawn Pos");
 
         timeScaleOrig = Time.timeScale;
-        defaultFOV = cam.fieldOfView;
+        defaultFOV = Camera.main.fieldOfView;
 
         isCounting = true;
         StartCoroutine(CountDownStart());
@@ -70,7 +69,7 @@ public class gameManager : MonoBehaviour
                 scopeMask.SetActive(true);
                 basicReticle.SetActive(false);
             }
-            else if (cam.fieldOfView != defaultFOV)
+            else if (Camera.main.fieldOfView != defaultFOV)
             {
                 ZoomCamera(defaultFOV);
                 scopeMask.SetActive(false);
@@ -163,7 +162,7 @@ public class gameManager : MonoBehaviour
     void ZoomCamera(float target)
     {
         float angle = Mathf.Abs((defaultFOV/zoomMult)-defaultFOV);
-        cam.fieldOfView = Mathf.MoveTowards(cam.fieldOfView, target, angle * Time.deltaTime);
+        Camera.main.fieldOfView = Mathf.MoveTowards(Camera.main.fieldOfView, target, angle * Time.deltaTime);
     }
 
 }

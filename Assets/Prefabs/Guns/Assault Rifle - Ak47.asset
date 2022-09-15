@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Assault Rifle - Ak47
   m_EditorClassIdentifier: 
   shootRate: 0.3
-  shootDist: 50
+  shootDist: 40
   shootDamage: 2
   ammoCount: 20
   model: {fileID: 8004749423984425302, guid: f1ad929ffd81a4049a1199f5f7bf3a85, type: 3}

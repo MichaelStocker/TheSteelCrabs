@@ -49,7 +49,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 2425369541821612668}
   mainCam: {fileID: 2425369542697125356}
-  playerHealth: 5
+  playerHealth: 10
   playerSpeed: 15
   jumpHeight: 10
   gravityValue: 10

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Shotgun - Pump - (Gun Stat)
   m_EditorClassIdentifier: 
   shootRate: 1
-  shootDist: 10
+  shootDist: 15
   shootDamage: 5
   ammoCount: 10
   model: {fileID: 2275594696051324843, guid: 2d806e7bcf8c29d40a48d20fefb178c4, type: 3}

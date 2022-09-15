@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Pistol - Desert Eagle
   m_EditorClassIdentifier: 
   shootRate: 0.5
-  shootDist: 25
+  shootDist: 30
   shootDamage: 1
   ammoCount: 10
   model: {fileID: 414218767603873718, guid: 2f720ecfd5f05d84b880ff0e3759213c, type: 3}

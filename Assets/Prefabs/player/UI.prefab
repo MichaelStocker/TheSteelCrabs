@@ -898,7 +898,7 @@ MonoBehaviour:
   pauseMenu: {fileID: 4143467296865065275}
   playerDeadMenu: {fileID: 4143467298000300261}
   winMenu: {fileID: 4143467297169059941}
-  countDownTimer: 3
+  countDownTimer: 5
   playerDamage: {fileID: 4143467297060193449}
   HPBar: {fileID: 4143467297711487383}
   countDownDisplay: {fileID: 2138754410}

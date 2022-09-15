@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4179400897317997961}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -40.33, y: 2.528593, z: 4.01}
+  m_LocalPosition: {x: -40, y: 2.528593, z: 4.01}
   m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -49,7 +49,7 @@ MonoBehaviour:
   rb: {fileID: -6709086307216626594}
   damage: 1
   bulletSpeed: 20
-  destroyTime: 3
+  destroyTime: 4
 --- !u!135 &1904169460113021992
 SphereCollider:
   m_ObjectHideFlags: 0

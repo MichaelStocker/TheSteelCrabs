@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Sniper - (Gun Stat)
   m_EditorClassIdentifier: 
   shootRate: 1
-  shootDist: 1000
+  shootDist: 999
   shootDamage: 10
   ammoCount: 5
   model: {fileID: 1004043185353936642, guid: b003a75794b387f4ba109b1f83619bef, type: 3}

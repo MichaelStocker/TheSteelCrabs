@@ -110,11 +110,10 @@ public class gameManager : MonoBehaviour
         StartCoroutine(checkEnemyTotal());
     }
 
-    public void EnemyIncrement()
+    public void EnemyIncrement(int amount)
     {
-        enemyCount++;
+        enemyCount += amount;
         enemyCounter.text = enemyCount.ToString("F0");
-
     }
 
     IEnumerator checkEnemyTotal()

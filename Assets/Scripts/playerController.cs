@@ -5,15 +5,19 @@ using UnityEngine;
 
 public class playerController : MonoBehaviour, IDamageable
 {
+    [Header("----- Components -----")]
     [SerializeField] CharacterController controller;
     [SerializeField] Camera mainCam;
 
+    [Header("----- Player Attributes -----")]
     [SerializeField] int playerHealth;
     [SerializeField] float playerSpeed;
+    [SerializeField] float sprintMulti;
     [SerializeField] float jumpHeight;
     [SerializeField] float gravityValue;
     [SerializeField] int jumpsMax;
 
+    [Header("----- Gun Stats -----")]
     [SerializeField] float fireRate;
     [SerializeField] int shootDistance;
     [SerializeField] int shootDamage;
@@ -21,6 +25,18 @@ public class playerController : MonoBehaviour, IDamageable
     [SerializeField] List<GunStats> gunStat = new List<GunStats>();
     [SerializeField] GameObject gunModel;
 
+    [Header("----- Audio -----")]
+    [SerializeField] AudioSource aud;
+    [SerializeField] AudioClip[] playerDamage;
+    [Range(0, 1)] [SerializeField] float playerDamageVol;
+
+    [SerializeField] AudioClip[] playerJumpSound;
+    [Range(0, 1)] [SerializeField] float playerJumpSoundVol;
+
+    [SerializeField] AudioClip[] playerFootStepSound;
+    [Range(0, 1)] [SerializeField] float playerFootSoundVol;
+
+    [Range(0, 1)] [SerializeField] float gunShootSoundVol;
 
     int selectedGun;
 
@@ -29,10 +45,14 @@ public class playerController : MonoBehaviour, IDamageable
     private Vector3 playerVelocity;
     Vector3 move;
     bool isShooting;
+    float playerSpeedOG;
+    bool isSprinting;
+    bool playingFootSteps;
 
     private void Start()
     {
         playerHealthOG = playerHealth;
+        playerSpeedOG = playerSpeed;
         Respawn();
     }
 
@@ -43,6 +63,8 @@ public class playerController : MonoBehaviour, IDamageable
             Movement();
             gunSelect();
             StartCoroutine(Shoot());
+            sprint();
+            StartCoroutine(footSteps());
         }
     }
 
@@ -62,10 +84,41 @@ public class playerController : MonoBehaviour, IDamageable
         {
             playerVelocity.y = jumpHeight;
             jumpCounter++;
+            aud.PlayOneShot(playerJumpSound[Random.Range(0, playerJumpSound.Length)], playerJumpSoundVol);
         }
 
         playerVelocity.y -= gravityValue * Time.deltaTime;
         controller.Move(playerVelocity * Time.deltaTime);
+    }
+
+    void sprint()
+    {
+        if (Input.GetButtonDown("Sprint"))
+        {
+            isSprinting = true;
+            playerSpeed = playerSpeed * sprintMulti;
+        }
+        else if (Input.GetButtonUp("Sprint"))
+        {
+            isSprinting = false;
+            playerSpeed = playerSpeedOG;
+        }
+    }
+
+    IEnumerator footSteps()
+    {
+        if (!playingFootSteps && controller.isGrounded && move.normalized.magnitude > 0.3f)
+        {
+            playingFootSteps = true;
+            aud.PlayOneShot(playerFootStepSound[Random.Range(0, playerFootStepSound.Length)], playerFootSoundVol);
+
+            if (isSprinting)
+                yield return new WaitForSeconds(0.3f);
+            else
+                yield return new WaitForSeconds(0.4f);
+
+            playingFootSteps = false;
+        }
     }
 
     void gunSelect()
@@ -116,7 +169,7 @@ public class playerController : MonoBehaviour, IDamageable
         if (gunStat.Count > 0 && !isShooting && Input.GetButton("Shoot"))
         {
             isShooting = true;
-
+            aud.PlayOneShot(gunStat[selectedGun].sound, gunShootSoundVol);
             Debug.Log("Log Shot");
 
             RaycastHit hit;
@@ -124,6 +177,9 @@ public class playerController : MonoBehaviour, IDamageable
             {
                 if (hit.collider.GetComponent<IDamageable>() != null) 
                     hit.collider.GetComponent<IDamageable>().TakeDamage(shootDamage);
+
+                Instantiate(gunStat[selectedGun].hitEffect, hit.point, transform.rotation);
+                Instantiate(gunStat[selectedGun].hitEffect, gunModel.transform.position, transform.rotation);
             }
 
             yield return new WaitForSeconds(fireRate);
@@ -158,6 +214,7 @@ public class playerController : MonoBehaviour, IDamageable
     {
         playerHealth -= dmg;
         UpdatePlayerHP();
+        aud.PlayOneShot(playerDamage[Random.Range(0, playerDamage.Length)], playerDamageVol);
 
         StartCoroutine(DamageFlash());
 

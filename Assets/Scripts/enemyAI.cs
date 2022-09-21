@@ -9,6 +9,7 @@ public class enemyAI : MonoBehaviour, IDamageable
     [SerializeField] NavMeshAgent agent;
     [SerializeField] Renderer rend;
     [SerializeField] Animator anim;
+    [SerializeField] GameObject HeadPosition;
 
     [Header("----- Enemy Stats -----")]
     [Range(1, 10)] [SerializeField] int hP;
@@ -48,7 +49,7 @@ public class enemyAI : MonoBehaviour, IDamageable
         if (agent.enabled)
         {
             angle = Vector3.Angle(playerDir, transform.forward);
-            playerDir = gameManager.instance.player.transform.position - transform.position;
+            playerDir = gameManager.instance.player.transform.position - HeadPosition.transform.position;
 
             anim.SetFloat("Speed", Mathf.Lerp(anim.GetFloat("Speed"), agent.velocity.normalized.magnitude, Time.deltaTime * 4));
             if (!takingDmg)
@@ -112,9 +113,9 @@ public class enemyAI : MonoBehaviour, IDamageable
         float angle = Vector3.Angle(playerDir, transform.forward);
         RaycastHit hit;
 
-        if (Physics.Raycast(transform.position + transform.up * 1.5f, playerDir, out hit))
+        if (Physics.Raycast(HeadPosition.transform.position, playerDir, out hit))
         {
-            Debug.DrawRay(transform.position + transform.up, playerDir);
+            Debug.DrawRay(HeadPosition.transform.position, playerDir);
             if (hit.collider.CompareTag("Player") && angle <= viewAngle)
             {
                 agent.SetDestination(gameManager.instance.player.transform.position);
@@ -181,6 +182,8 @@ public class enemyAI : MonoBehaviour, IDamageable
         anim.SetBool("Dead", true);
         agent.enabled = false;
         foreach (Collider col in GetComponents<Collider>())
+        {
             col.enabled = false;
+        }
     }
 }

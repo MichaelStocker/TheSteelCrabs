@@ -804,6 +804,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gun Pickup - Pistol - Desert Eagle
       objectReference: {fileID: 0}
+    - target: {fileID: 8889551662930266568, guid: e1db96f1c8069c649a44b2e70046bf6d, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -7182689631186222527, guid: 8f9696fb6017be144a307b6586855ac0, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1db96f1c8069c649a44b2e70046bf6d, type: 3}
 --- !u!1 &1760038995 stripped

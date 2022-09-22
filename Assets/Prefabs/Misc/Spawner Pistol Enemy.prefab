@@ -43,7 +43,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 15
+  m_Radius: 20
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &6376084564268129108
 MonoBehaviour:
@@ -58,5 +58,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 1441578795850467098, guid: fc4186f75e7b16a448c418baa977e137, type: 3}
-  maxEnemies: 20
+  maxEnemies: 5
   timer: 1

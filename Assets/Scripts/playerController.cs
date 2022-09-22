@@ -39,6 +39,7 @@ public class playerController : MonoBehaviour, IDamageable
     [Range(0, 1)] [SerializeField] float gunShootSoundVol;
 
     int selectedGun;
+    public CharacterController controller2;
 
     int playerHealthOG;
     int jumpCounter;
@@ -51,6 +52,7 @@ public class playerController : MonoBehaviour, IDamageable
 
     private void Start()
     {
+        controller2 = controller;
         playerHealthOG = playerHealth;
         playerSpeedOG = playerSpeed;
         Respawn();
@@ -223,7 +225,15 @@ public class playerController : MonoBehaviour, IDamageable
 
     public void GivePlayerHP(int healthToAdd)
     {
-        playerHealth += healthToAdd;
+        if (playerHealth + healthToAdd > playerHealthOG)
+        {
+            playerHealth = playerHealthOG;
+        }
+        else
+        {
+            playerHealth += healthToAdd;
+        }
+        UpdatePlayerHP();
     }
 
     public void GiveJump(int jumpsToAdd)

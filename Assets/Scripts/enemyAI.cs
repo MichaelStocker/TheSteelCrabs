@@ -10,6 +10,7 @@ public class enemyAI : MonoBehaviour, IDamageable
     [SerializeField] Renderer rend;
     [SerializeField] Animator anim;
     [SerializeField] GameObject HeadPosition;
+    [SerializeField] GameObject medKitToDrop;
 
     [Header("----- Enemy Stats -----")]
     [Range(1, 10)] [SerializeField] int hP;
@@ -22,7 +23,7 @@ public class enemyAI : MonoBehaviour, IDamageable
     [SerializeField] float fireRate;
     [SerializeField] GameObject bullet;
     [SerializeField] Transform bulletPos;
-    
+
     Vector3 playerDir;
     bool isShooting;
     bool takingDmg;
@@ -33,6 +34,8 @@ public class enemyAI : MonoBehaviour, IDamageable
     Vector3 startingPos;
     bool roamPathValid;
     float angle;
+    System.Random rand = new System.Random();
+    int randy;
 
     // Start is called before the first frame update
     void Start()
@@ -105,7 +108,7 @@ public class enemyAI : MonoBehaviour, IDamageable
     {
         playerDir.y = 0;
         Quaternion rotation = Quaternion.LookRotation(playerDir);
-        transform.rotation = Quaternion.Lerp(transform.rotation, rotation,Time.deltaTime * playerFaceSpeed);
+        transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * playerFaceSpeed);
     }
 
     void canSeePlayer()
@@ -172,12 +175,16 @@ public class enemyAI : MonoBehaviour, IDamageable
         isShooting = true;
 
         Instantiate(bullet, bulletPos.position, transform.rotation);
-        
+
         yield return new WaitForSeconds(fireRate);
         isShooting = false;
     }
+
     void enemyDead()
     {
+        randy = rand.Next(10000);
+        if (randy > 7000) Instantiate(medKitToDrop, transform.position, transform.rotation);
+
         gameManager.instance.EnemyDecrement();
         anim.SetBool("Dead", true);
         agent.enabled = false;

@@ -49,6 +49,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 2425369541821612668}
+  controller2: {fileID: 0}
   mainCam: {fileID: 2425369542697125356}
   playerHealth: 10
   playerSpeed: 15
@@ -63,28 +64,28 @@ MonoBehaviour:
   gunModel: {fileID: 5848993915472511155}
   aud: {fileID: 6345690729564146065}
   playerDamage:
-  - {fileID: 8300000, guid: e2f8bdf1db38e104e9badb22cd0de1fd, type: 3}
-  - {fileID: 8300000, guid: 44848a11b9487a049892a382c36f1b60, type: 3}
-  - {fileID: 8300000, guid: 6889c61a91edd8b4aace37ef32ad02f4, type: 3}
-  - {fileID: 8300000, guid: c54f6373fb344724091ea237e49ad91e, type: 3}
-  - {fileID: 8300000, guid: caa383817ec4830429c88e6c8e47060c, type: 3}
-  - {fileID: 8300000, guid: 501681bf9e3e6da4385018cb15a9b4c2, type: 3}
+  - {fileID: 8300000, guid: 5be49344ff4d2384c8be4c9bf237d4fc, type: 3}
+  - {fileID: 8300000, guid: 2c668f558b5e9ba4d8394328be4154fd, type: 3}
+  - {fileID: 8300000, guid: 82acda83ce6c6e24ca292c9aed8c983e, type: 3}
+  - {fileID: 8300000, guid: 244fff87f1a3ab64ba60ca1cc4f729c2, type: 3}
+  - {fileID: 8300000, guid: cb1e411a0ec44cb44bdc92b613be903b, type: 3}
+  - {fileID: 8300000, guid: 6a8b40382137e8443bdb62757746c18b, type: 3}
   playerDamageVol: 0.5
   playerJumpSound:
-  - {fileID: 8300000, guid: dfc3e8e2d4cab664ba44d423234dfa9e, type: 3}
-  - {fileID: 8300000, guid: 5e1c7d2da3501494594de4e63686f624, type: 3}
-  - {fileID: 8300000, guid: 333df5ed10291a649812bd873d50ef3e, type: 3}
+  - {fileID: 8300000, guid: 367141dbfe84cb34bbc2af08a83ab6dc, type: 3}
+  - {fileID: 8300000, guid: 7d9c439ade91a624186faca2011d3e5b, type: 3}
+  - {fileID: 8300000, guid: 1215b6e19187bed47bdc34851bc82783, type: 3}
   playerJumpSoundVol: 0.5
   playerFootStepSound:
-  - {fileID: 8300000, guid: b2771919db3a8494995ec273a12a283a, type: 3}
-  - {fileID: 8300000, guid: 68ab5ea766380a341b285dd7137856ff, type: 3}
-  - {fileID: 8300000, guid: 0d7896fde56855e42ad4fd764e246919, type: 3}
-  - {fileID: 8300000, guid: 84610e02a5d85cd4ba8704f403610515, type: 3}
-  - {fileID: 8300000, guid: 0a38b29f3d33aae48bd19e6bceb36d3f, type: 3}
-  - {fileID: 8300000, guid: b41d2bd1ba0628e4bb70acd2874b1daf, type: 3}
-  - {fileID: 8300000, guid: b59b8fe3c64147e4883d1c7f1a2ec89b, type: 3}
-  - {fileID: 8300000, guid: 31861cccc223f0745b8ae4f8c8118d46, type: 3}
-  - {fileID: 8300000, guid: 73c88012824e70045a8765edb13418aa, type: 3}
+  - {fileID: 8300000, guid: 99f562d23c2a17548820f5b2f5e18f3f, type: 3}
+  - {fileID: 8300000, guid: d1a963f98e14f844f81b2df3aa79e62e, type: 3}
+  - {fileID: 8300000, guid: e35f319dffbb6314092044c23fd1400c, type: 3}
+  - {fileID: 8300000, guid: 32a979fe6c8755847916fdff5141d465, type: 3}
+  - {fileID: 8300000, guid: 216433ae88f364542ab67167edba4ff2, type: 3}
+  - {fileID: 8300000, guid: 8aeefd96a77139541bbc5a10f305dfeb, type: 3}
+  - {fileID: 8300000, guid: f6b69ec463ca68849b65e9666d43049f, type: 3}
+  - {fileID: 8300000, guid: e12c7734eae54774fb44e64e2000de1a, type: 3}
+  - {fileID: 8300000, guid: 5520d499e3f2d87499c5e3c75f8ae789, type: 3}
   playerFootSoundVol: 0.5
   gunShootSoundVol: 0.5
 --- !u!33 &2425369541821612666

@@ -93,7 +93,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2138754409
 RectTransform:
   m_ObjectHideFlags: 0
@@ -324,7 +324,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4143467296180450315
 RectTransform:
   m_ObjectHideFlags: 0
@@ -894,21 +894,22 @@ MonoBehaviour:
   player: {fileID: 0}
   playerScript: {fileID: 0}
   playerSpawnPos: {fileID: 0}
+  playerDamage: {fileID: 4143467297060193449}
   menuCurrentlyOpen: {fileID: 0}
   pauseMenu: {fileID: 4143467296865065275}
   playerDeadMenu: {fileID: 4143467298000300261}
   winMenu: {fileID: 4143467297169059941}
   countDownTimer: 5
-  playerDamage: {fileID: 4143467297060193449}
+  UI: {fileID: 4143467296180450319}
   HPBar: {fileID: 4143467297711487383}
   countDownDisplay: {fileID: 2138754410}
   enemyCounter: {fileID: 4143467296533943706}
-  cam: {fileID: 0}
   scopeMask: {fileID: 1406328533921949170}
   basicReticle: {fileID: 4143467296546910102}
   zoomMult: 2
   defaultFOV: 60
   enemyCount: 0
+  waveCount: 0
   isCounting: 0
   isPaused: 0
 --- !u!1 &4143467296533943708

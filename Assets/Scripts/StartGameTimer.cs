@@ -12,7 +12,7 @@ public class StartGameTimer : MonoBehaviour
 
     void Start()
     {
-        StartCoroutine(CountDownStart());   
+        //StartCoroutine(CountDownStart());   
     }
 
     IEnumerator CountDownStart()

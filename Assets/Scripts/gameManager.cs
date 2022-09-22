@@ -8,27 +8,33 @@ public class gameManager : MonoBehaviour
 {
     public static gameManager instance;
 
+    [Header("----- Player -----")]
     public GameObject player;
     public playerController playerScript;
     public GameObject playerSpawnPos;
+    public GameObject playerDamage;
 
+    [Header("----- Menus -----")]
     public GameObject menuCurrentlyOpen;
     public GameObject pauseMenu;
     public GameObject playerDeadMenu;
     public GameObject winMenu;
-    [Range(3, 10)] [SerializeField] int countDownTimer;
-    public GameObject playerDamage;
 
+    [Header("----- UI -----")]
+    [Range(3, 10)] [SerializeField] int countDownTimer;
     public Image HPBar;
     public Text countDownDisplay;
     public TextMeshProUGUI enemyCounter;
 
+    [Header("----- Scope -----")]
     public GameObject scopeMask;
     public GameObject basicReticle;
     public float zoomMult;
     public float defaultFOV;
 
+    [Header("----- Misc -----")]
     public int enemyCount;
+    public int waveCount;
     public bool isCounting;
     public bool isPaused;
     float timeScaleOrig;
@@ -46,7 +52,6 @@ public class gameManager : MonoBehaviour
         defaultFOV = Camera.main.fieldOfView;
 
         isCounting = true;
-        StartCoroutine(CountDownStart());
     }
 
     // Update is called once per frame
@@ -127,11 +132,19 @@ public class gameManager : MonoBehaviour
         }
     }
 
-    IEnumerator CountDownStart()
+    //IEnumerator WinGame()
+    //{
+    //    yield return new WaitForSeconds(2);
+    //    menuCurrentlyOpen = winMenu;
+    //    menuCurrentlyOpen.SetActive(true);
+    //    CursorLockPause();
+    //}
+
+    public IEnumerator CountDownStart()
     {
-        //Pauses game & turns off player functionality
-        gameManager.instance.playerScript.enabled = false;
+        //Pauses game & turns on text
         Time.timeScale = 0;
+        countDownDisplay.gameObject.SetActive(true);
 
         while (countDownTimer != 0)
         {
@@ -147,10 +160,9 @@ public class gameManager : MonoBehaviour
 
         //Resumes game & gives back player functionality
         Time.timeScale = 1;
-        gameManager.instance.playerScript.enabled = true;
 
         //Lets player know they can move now
-        countDownDisplay.text = "Eliminate All Enemies";
+        countDownDisplay.text = "Go!!!";
 
         //Disables the text getting start off the screen
         yield return new WaitForSeconds(1f);

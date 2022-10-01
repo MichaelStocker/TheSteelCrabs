@@ -50,7 +50,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   linkedTeleporter: {fileID: 0}
   teleporterCooldown: 0
-  party: {fileID: 962493212247611024}
+  party: {fileID: 0}
 --- !u!136 &2879779949072593288
 CapsuleCollider:
   m_ObjectHideFlags: 0

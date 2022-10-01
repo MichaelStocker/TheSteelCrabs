@@ -667,7 +667,7 @@ MonoBehaviour:
   rend: {fileID: 1479551090039922588}
   anim: {fileID: 5308187322614450138}
   HeadPosition: {fileID: 3199698601936859340}
-  medKitToDrop: {fileID: 6402588204361996239, guid: 197b3590d8cdf0b47971d4187fa67e0a, type: 3}
+  medKitToDrop: {fileID: 7584681947867221943, guid: 197b3590d8cdf0b47971d4187fa67e0a, type: 3}
   hP: 5
   speedChase: 5
   playerFaceSpeed: 5
@@ -1689,7 +1689,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3622184983128918314}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.004, y: 0.252, z: 0.606}
+  m_LocalPosition: {x: 0.004, y: 0.076, z: 0.606}
   m_LocalScale: {x: 3.3333313, y: 3.333332, z: 3.333331}
   m_Children: []
   m_Father: {fileID: 7405536762832697971}

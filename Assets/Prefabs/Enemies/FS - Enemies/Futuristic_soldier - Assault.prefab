@@ -2637,7 +2637,7 @@ MonoBehaviour:
   rend: {fileID: 1887547713293066096}
   anim: {fileID: 5121711509706802998}
   HeadPosition: {fileID: 2512478255474454560}
-  medKitToDrop: {fileID: 6402588204361996239, guid: 197b3590d8cdf0b47971d4187fa67e0a, type: 3}
+  medKitToDrop: {fileID: 7584681947867221943, guid: 197b3590d8cdf0b47971d4187fa67e0a, type: 3}
   hP: 5
   speedChase: 5
   playerFaceSpeed: 5

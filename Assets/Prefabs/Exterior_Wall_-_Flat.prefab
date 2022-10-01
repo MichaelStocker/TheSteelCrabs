@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6477865659781553966}
   - component: {fileID: 6436499347761493900}
   m_Layer: 0
-  m_Name: Exterior Wall - Flat
+  m_Name: Exterior_Wall_-_Flat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

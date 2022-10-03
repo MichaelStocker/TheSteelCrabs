@@ -15,8 +15,8 @@ MonoBehaviour:
   shootRate: 0.2
   shootDist: 40
   shootDamage: 2
-  maximAmmo: 20
-  currAmmo: 0
+  maximAmmo: 10
+  currAmmo: 10
   reloTime: 1
   model: {fileID: 8916964129531996930, guid: 11e141d1a14ed5b469304cd90cb05813, type: 3}
   sightModel: {fileID: 5828464838643474811, guid: 0ba7c2cdf80318344919112ecf54d6e9, type: 3}

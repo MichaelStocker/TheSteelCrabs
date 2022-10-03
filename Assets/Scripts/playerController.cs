@@ -58,8 +58,8 @@ public class playerController : MonoBehaviour, IDamageable
 
     private void Start()
     {
-        currentAmmo = maxAmmo;
         controller2 = controller;
+        currentAmmo = maxAmmo;
         playerHealthOG = playerHealth;
         playerSpeedOG = playerSpeed;
         Respawn();
@@ -76,6 +76,7 @@ public class playerController : MonoBehaviour, IDamageable
                 sprint();
                 return;
             }
+            StartCoroutine(Reload());
             Movement();
             gunSelect();
             StartCoroutine(Shoot());
@@ -224,7 +225,7 @@ public class playerController : MonoBehaviour, IDamageable
             isShooting = true;
             currentAmmo--;
             aud.PlayOneShot(gunStat[selectedGun].sound, gunShootSoundVol);
-            Debug.Log("Log Shot");
+            //Debug.Log("Log Shot");
 
             RaycastHit hit;
             if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f)), out hit, shootDistance))

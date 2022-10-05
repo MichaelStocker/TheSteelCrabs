@@ -21,9 +21,14 @@ public class playerController : MonoBehaviour, IDamageable
     [SerializeField] float fireRate;
     [SerializeField] int shootDistance;
     [SerializeField] int shootDamage;
+    [SerializeField] int maxAmmo;
+    [SerializeField] int currentAmmo;
+    [Range(0, 3)] [SerializeField] float reloadTime;
 
     [SerializeField] List<GunStats> gunStat = new List<GunStats>();
     [SerializeField] GameObject gunModel;
+    [SerializeField] GameObject gunModelSight;
+    [SerializeField] GameObject gunModelSil;
 
     [Header("----- Audio -----")]
     [SerializeField] AudioSource aud;
@@ -49,10 +54,12 @@ public class playerController : MonoBehaviour, IDamageable
     float playerSpeedOG;
     bool isSprinting;
     bool playingFootSteps;
+    bool isReloading;
 
     private void Start()
     {
         controller2 = controller;
+        currentAmmo = maxAmmo;
         playerHealthOG = playerHealth;
         playerSpeedOG = playerSpeed;
         Respawn();
@@ -62,11 +69,31 @@ public class playerController : MonoBehaviour, IDamageable
     {
         if (!gameManager.instance.isPaused)
         {
+            if (isReloading)
+            {
+                Movement();
+                gunSelect();
+                sprint();
+                return;
+            }
+            StartCoroutine(Reload());
             Movement();
             gunSelect();
             StartCoroutine(Shoot());
             sprint();
             StartCoroutine(footSteps());
+        }
+    }
+
+    IEnumerator Reload()
+    {
+        if (currentAmmo <= 0)
+        {
+            isReloading = true;
+            Debug.Log("Reloading");
+            yield return new WaitForSeconds(reloadTime);
+            currentAmmo = maxAmmo;
+            isReloading = false;
         }
     }
 
@@ -134,9 +161,17 @@ public class playerController : MonoBehaviour, IDamageable
                 shootDistance = gunStat[selectedGun].shootDist;
                 shootDamage = gunStat[selectedGun].shootDamage;
 
+                maxAmmo = gunStat[selectedGun].maximAmmo;
+                currentAmmo = gunStat[selectedGun].currAmmo;
+                reloadTime = gunStat[selectedGun].reloTime;
 
                 gunModel.GetComponent<MeshFilter>().sharedMesh = gunStat[selectedGun].model.GetComponent<MeshFilter>().sharedMesh;
+                gunModelSight.GetComponent<MeshFilter>().sharedMesh = gunStat[selectedGun].sightModel.GetComponent<MeshFilter>().sharedMesh;
+                gunModelSil.GetComponent<MeshFilter>().sharedMesh = gunStat[selectedGun].silModel.GetComponent<MeshFilter>().sharedMesh;
+
                 gunModel.GetComponent<MeshRenderer>().sharedMaterial = gunStat[selectedGun].model.GetComponent<MeshRenderer>().sharedMaterial;
+                gunModelSight.GetComponent<MeshRenderer>().sharedMaterials = gunStat[selectedGun].sightModel.GetComponent<MeshRenderer>().sharedMaterials;
+                gunModelSil.GetComponent<MeshRenderer>().sharedMaterial = gunStat[selectedGun].silModel.GetComponent<MeshRenderer>().sharedMaterial;
             }
             else if (Input.GetAxis("Mouse ScrollWheel") < 0 && selectedGun > 0)
             {
@@ -145,9 +180,17 @@ public class playerController : MonoBehaviour, IDamageable
                 shootDistance = gunStat[selectedGun].shootDist;
                 shootDamage = gunStat[selectedGun].shootDamage;
 
+                maxAmmo = gunStat[selectedGun].maximAmmo;
+                currentAmmo = gunStat[selectedGun].currAmmo;
+                reloadTime = gunStat[selectedGun].reloTime;
 
                 gunModel.GetComponent<MeshFilter>().sharedMesh = gunStat[selectedGun].model.GetComponent<MeshFilter>().sharedMesh;
+                gunModelSight.GetComponent<MeshFilter>().sharedMesh = gunStat[selectedGun].sightModel.GetComponent<MeshFilter>().sharedMesh;
+                gunModelSil.GetComponent<MeshFilter>().sharedMesh = gunStat[selectedGun].silModel.GetComponent<MeshFilter>().sharedMesh;
+
                 gunModel.GetComponent<MeshRenderer>().sharedMaterial = gunStat[selectedGun].model.GetComponent<MeshRenderer>().sharedMaterial;
+                gunModelSight.GetComponent<MeshRenderer>().sharedMaterials = gunStat[selectedGun].sightModel.GetComponent<MeshRenderer>().sharedMaterials;
+                gunModelSil.GetComponent<MeshRenderer>().sharedMaterial = gunStat[selectedGun].silModel.GetComponent<MeshRenderer>().sharedMaterial;
             }
         }
     }
@@ -159,8 +202,17 @@ public class playerController : MonoBehaviour, IDamageable
         shootDamage = stats.shootDamage;
         shootDistance = stats.shootDist;
 
+        maxAmmo = stats.maximAmmo;
+        currentAmmo = stats.currAmmo;
+        reloadTime = stats.reloTime;
+
         gunModel.GetComponent<MeshFilter>().sharedMesh = stats.model.GetComponent<MeshFilter>().sharedMesh;
+        gunModelSight.GetComponent<MeshFilter>().sharedMesh = stats.sightModel.GetComponent<MeshFilter>().sharedMesh;
+        gunModelSil.GetComponent<MeshFilter>().sharedMesh = stats.silModel.GetComponent<MeshFilter>().sharedMesh;
+
         gunModel.GetComponent<MeshRenderer>().sharedMaterial = stats.model.GetComponent<MeshRenderer>().sharedMaterial;
+        gunModelSight.GetComponent<MeshRenderer>().sharedMaterials = stats.sightModel.GetComponent<MeshRenderer>().sharedMaterials;
+        gunModelSil.GetComponent<MeshRenderer>().sharedMaterial = stats.silModel.GetComponent<MeshRenderer>().sharedMaterial;
 
         //Added the gun to the list.
         gunStat.Add(stats);
@@ -171,8 +223,9 @@ public class playerController : MonoBehaviour, IDamageable
         if (gunStat.Count > 0 && !isShooting && Input.GetButton("Shoot"))
         {
             isShooting = true;
+            currentAmmo--;
             aud.PlayOneShot(gunStat[selectedGun].sound, gunShootSoundVol);
-            Debug.Log("Log Shot");
+            //Debug.Log("Log Shot");
 
             RaycastHit hit;
             if (Physics.Raycast(Camera.main.ViewportPointToRay(new Vector2(0.5f, 0.5f)), out hit, shootDistance))

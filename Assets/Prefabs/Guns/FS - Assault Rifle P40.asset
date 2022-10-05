@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 040a5828834fc8042b076df360dc4791, type: 3}
+  m_Name: FS - Assault Rifle P40
+  m_EditorClassIdentifier: 
+  shootRate: 0.2
+  shootDist: 40
+  shootDamage: 2
+  maximAmmo: 10
+  currAmmo: 10
+  reloTime: 1
+  model: {fileID: 8916964129531996930, guid: 11e141d1a14ed5b469304cd90cb05813, type: 3}
+  sightModel: {fileID: 5828464838643474811, guid: 0ba7c2cdf80318344919112ecf54d6e9, type: 3}
+  silModel: {fileID: 5828464838643474811, guid: a7f7da359b707974a9bb007f1063ce6e, type: 3}
+  sound: {fileID: 8300000, guid: 17bae490c13596142a1e8dd99402589e, type: 3}
+  hitEffect: {fileID: 618435168828052837, guid: 3432e78c49e080a47a3b22b5ef8da435, type: 3}

@@ -188,6 +188,7 @@ MonoBehaviour:
   agent: {fileID: 5736899633419508408}
   rend: {fileID: 5736899633423590521}
   anim: {fileID: 5736899633419508409}
+  HeadPosition: {fileID: 5736899633428867455}
   hP: 5
   speedChase: 5
   playerFaceSpeed: 5

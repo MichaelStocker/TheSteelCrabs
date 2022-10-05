@@ -17,5 +17,5 @@ MonoBehaviour:
   shootDamage: 1
   ammoCount: 10
   model: {fileID: 414218767603873718, guid: 2f720ecfd5f05d84b880ff0e3759213c, type: 3}
-  sound: {fileID: 8300000, guid: 17bae490c13596142a1e8dd99402589e, type: 3}
+  sound: {fileID: 8300000, guid: 5ee06944a08a65d4a994da25934538fd, type: 3}
   hitEffect: {fileID: 618435168828052837, guid: 3432e78c49e080a47a3b22b5ef8da435, type: 3}

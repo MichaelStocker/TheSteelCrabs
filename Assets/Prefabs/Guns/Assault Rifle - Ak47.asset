@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 040a5828834fc8042b076df360dc4791, type: 3}
   m_Name: Assault Rifle - Ak47
   m_EditorClassIdentifier: 
-  shootRate: 0.3
+  shootRate: 0.1
   shootDist: 40
   shootDamage: 2
   ammoCount: 20
   model: {fileID: 8004749423984425302, guid: f1ad929ffd81a4049a1199f5f7bf3a85, type: 3}
-  sound: {fileID: 8300000, guid: 17bae490c13596142a1e8dd99402589e, type: 3}
+  sound: {fileID: 8300000, guid: 92d35fe1c59bbd14eaee9e3d3b54cea7, type: 3}
   hitEffect: {fileID: 618435168828052837, guid: 3432e78c49e080a47a3b22b5ef8da435, type: 3}

@@ -668,7 +668,7 @@ MonoBehaviour:
   anim: {fileID: 5308187322614450138}
   HeadPosition: {fileID: 3199698601936859340}
   medKitToDrop: {fileID: 7584681947867221943, guid: 197b3590d8cdf0b47971d4187fa67e0a, type: 3}
-  hP: 5
+  hP: 10
   speedChase: 5
   playerFaceSpeed: 5
   roamRadius: 45
@@ -676,6 +676,7 @@ MonoBehaviour:
   fireRate: 0.4
   bullet: {fileID: 4179400897317997961, guid: 0b85a0e39e320cf44986ad242d7684a7, type: 3}
   bulletPos: {fileID: 3622184983128918313}
+  enemyPrefab: {fileID: 1441578795850467098}
   playerInRange: 0
 --- !u!195 &1441578795850467097
 NavMeshAgent:

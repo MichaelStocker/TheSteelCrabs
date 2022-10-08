@@ -37,6 +37,7 @@ public class gameManager : MonoBehaviour
     public int waveCount;
     public bool isCounting;
     public bool isPaused;
+    public bool isFiringRange;
     float timeScaleOrig;
 
     // Start is called before the first frame update
@@ -123,7 +124,7 @@ public class gameManager : MonoBehaviour
 
     IEnumerator checkEnemyTotal()
     {
-        if (enemyCount <= 0)
+        if (!isFiringRange && enemyCount <= 0)
         {
             yield return new WaitForSeconds(2);
             menuCurrentlyOpen = winMenu;

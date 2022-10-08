@@ -13,17 +13,18 @@ public class enemyAI : MonoBehaviour, IDamageable
     [SerializeField] GameObject medKitToDrop;
 
     [Header("----- Enemy Stats -----")]
-    [Range(1, 10)] [SerializeField] int hP;
-    [Range(1, 10)] [SerializeField] float speedChase;
-    [Range(1, 10)] [SerializeField] int playerFaceSpeed;
-    [Range(1, 50)] [SerializeField] int roamRadius;
-    [Range(1, 180)] [SerializeField] int viewAngle;
+    [Range(1, 10)][SerializeField] int hP;
+    [Range(1, 10)][SerializeField] float speedChase;
+    [Range(1, 10)][SerializeField] int playerFaceSpeed;
+    [Range(1, 50)][SerializeField] int roamRadius;
+    [Range(1, 180)][SerializeField] int viewAngle;
 
     [Header("----- Weapon Stats -----")]
     [SerializeField] float fireRate;
     [SerializeField] GameObject bullet;
     [SerializeField] Transform bulletPos;
 
+    public GameObject enemyPrefab;
     Vector3 playerDir;
     bool isShooting;
     bool takingDmg;
@@ -36,10 +37,13 @@ public class enemyAI : MonoBehaviour, IDamageable
     float angle;
     System.Random rand = new System.Random();
     int randy;
+    int hpOG;
+    bool respawnEnemy;
 
     // Start is called before the first frame update
     void Start()
     {
+        hpOG = hP;
         lastPlayerPos = transform.position;
         stoppingDistanceOrig = agent.stoppingDistance;
         speedOrig = agent.speed;
@@ -49,7 +53,7 @@ public class enemyAI : MonoBehaviour, IDamageable
     // Update is called once per frame
     void Update()
     {
-        if (agent.enabled)
+        if (!gameManager.instance.isFiringRange && agent.enabled)
         {
             angle = Vector3.Angle(playerDir, transform.forward);
             playerDir = gameManager.instance.player.transform.position - HeadPosition.transform.position;
@@ -183,14 +187,25 @@ public class enemyAI : MonoBehaviour, IDamageable
     void enemyDead()
     {
         randy = rand.Next(10000);
-        if (randy > 7000) Instantiate(medKitToDrop, transform.position, transform.rotation);
+        if (!gameManager.instance.isFiringRange && randy > 7000) Instantiate(medKitToDrop, transform.position, transform.rotation);
 
         gameManager.instance.EnemyDecrement();
         anim.SetBool("Dead", true);
         agent.enabled = false;
-        foreach (Collider col in GetComponents<Collider>())
-        {
-            col.enabled = false;
-        }
+        //if (gameManager.instance.isFiringRange && !respawnEnemy)
+        //{
+        //    StartCoroutine(EnemyRespawn());
+        //    respawnEnemy = true;
+        //}
+            foreach (Collider col in GetComponents<Collider>())
+            {
+                col.enabled = false;
+            }
+        
+    }
+    IEnumerator EnemyRespawn()
+    {
+        yield return new WaitForSeconds(2f);
+        // respawn enemy in the same position with all necessary statistics (health)
     }
 }

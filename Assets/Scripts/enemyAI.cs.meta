@@ -3,7 +3,15 @@ guid: 98468706b3c72ce47b6940d408278852
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - agent: {instanceID: 0}
+  - rend: {instanceID: 0}
+  - anim: {instanceID: 0}
+  - HeadPosition: {instanceID: 0}
+  - medKitToDrop: {instanceID: 0}
+  - bullet: {instanceID: 0}
+  - bulletPos: {instanceID: 0}
+  - enemyPrefab: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 
 public class buttonFunctions : MonoBehaviour
@@ -35,21 +37,62 @@ public class buttonFunctions : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
-
-
-    public void GiveHP(int healthToAdd)
+    public void BackMainMenu()
     {
-        gameManager.instance.playerScript.GivePlayerHP(healthToAdd);
+        gameManager.instance.settingsMenu.SetActive(false);
+        gameManager.instance.menuCurrentlyOpen = null;
+        gameManager.instance.startMenu.SetActive(true);
+        gameManager.instance.SaveSoundSettings();
     }
 
-    public void GiveJump(int jumpsToAdd)
+    public void BackInGame()
     {
-        gameManager.instance.playerScript.GiveJump(jumpsToAdd);
+        gameManager.instance.menuCurrentlyOpen.SetActive(false);
+        gameManager.instance.pauseMenu.SetActive(true);
+        gameManager.instance.SaveSoundSettings();
     }
 
-    public void GiveSpeed(int speedToAdd)
+    public void Settings()
     {
-        gameManager.instance.playerScript.GiveSpeed(speedToAdd);
+        if (gameManager.instance.menuCurrentlyOpen == null) gameManager.instance.startMenu.SetActive(false);
+        else gameManager.instance.menuCurrentlyOpen.SetActive(false);
+
+        gameManager.instance.settingsMenu.SetActive(true);
+        gameManager.instance.menuCurrentlyOpen = gameManager.instance.settingsMenu;
     }
+
+    public void SetDisplayMode(bool isFullscreen)
+    {
+        Screen.fullScreen = isFullscreen;
+    }
+
+    public void SetSensitivityHori(float sensitivity)
+    {
+        gameManager.instance.sensHor = (int)sensitivity;
+    }
+
+    public void SetSensitivityVert(float sensitivity)
+    {
+        gameManager.instance.sensVert = (int)sensitivity;
+    }
+
+    public void SetBrightness()
+    {
+
+    }
+
+    public void SetMainVolume()
+    {
+        //audioMixer.SetFloat("Main Volume", volume);
+    }
+
+    public void UpdateSound()
+    {
+        gameManager.instance.MainVolume.volume = gameManager.instance.mainVolumeSlider.value;
+        gameManager.instance.SFXVolume.volume = gameManager.instance.SFXSlider.value;
+        gameManager.instance.MusicVolume.volume = gameManager.instance.musicVolumeSlider.value;
+    }
+
+
 
 }

@@ -8,7 +8,7 @@ public class gunPickup : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && gameManager.instance.playerScript != null)
         {
             gameManager.instance.playerScript.gunPickup(gunStat);
             Destroy(gameObject);

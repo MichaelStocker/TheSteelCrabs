@@ -269,7 +269,11 @@ MonoBehaviour:
   rend: {fileID: 1347759232226116367}
   anim: {fileID: 5734806634465778505}
   HeadPosition: {fileID: 3052249698544577631}
+<<<<<<< Updated upstream
   medKitToDrop: {fileID: 7584681947867221943, guid: 197b3590d8cdf0b47971d4187fa67e0a, type: 3}
+=======
+  medKitToDrop: {fileID: 1161834115648047373, guid: 39ca87953a064a443a20061ae7ac54c2, type: 3}
+>>>>>>> Stashed changes
   hP: 3
   speedChase: 5
   playerFaceSpeed: 8
@@ -293,7 +297,7 @@ NavMeshAgent:
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 200
-  m_StoppingDistance: 0.8
+  m_StoppingDistance: 5
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1

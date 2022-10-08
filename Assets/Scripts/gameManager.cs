@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
 public class gameManager : MonoBehaviour
 {
@@ -13,18 +12,39 @@ public class gameManager : MonoBehaviour
     public playerController playerScript;
     public GameObject playerSpawnPos;
     public GameObject playerDamage;
+    public int sensHor;
+    public int sensVert;
 
     [Header("----- Menus -----")]
     public GameObject menuCurrentlyOpen;
     public GameObject pauseMenu;
     public GameObject playerDeadMenu;
     public GameObject winMenu;
+    public GameObject startMenu;
+    public GameObject settingsMenu;
 
     [Header("----- UI -----")]
     [Range(3, 10)] [SerializeField] int countDownTimer;
     public Image HPBar;
     public Text countDownDisplay;
-    public TextMeshProUGUI enemyCounter;
+    public Text enemyCounter;
+
+    [Header("----- Audio -----")]
+    [SerializeField] public AudioSource MainVolume;
+    [SerializeField] public AudioSource MusicVolume;
+    [SerializeField] public AudioSource SFXVolume;
+
+    [SerializeField] AudioClip[] playerDamageSFX;
+    [SerializeField] AudioClip[] playerJumpSFX;
+    [SerializeField] AudioClip[] playerFootStepSFX;
+
+    private static readonly string FirstPlay = "FirstPlay";
+    private static readonly string MainVolumePref = "MainVolumePref";
+    private static readonly string SFXPref = "SFXPref";
+    private static readonly string MusicVolumePref = "MusicVolumePref";
+    public int firstPlayInt;
+    public Slider mainVolumeSlider, SFXSlider, musicVolumeSlider;
+    public float mainVolumeFloat, SFXFloat, musicVolimeFloat;
 
     [Header("----- Scope -----")]
     public GameObject scopeMask;
@@ -46,13 +66,44 @@ public class gameManager : MonoBehaviour
         instance = this;
 
         player = GameObject.FindGameObjectWithTag("Player");
-        playerScript= player.GetComponent<playerController>();
+        if (player != null) playerScript = player.GetComponent<playerController>();
         playerSpawnPos = GameObject.Find("Player Spawn Pos");
+        sensHor = 600;
+        sensVert = 600;
 
         timeScaleOrig = Time.timeScale;
-        defaultFOV = Camera.main.fieldOfView;
 
+        if (Camera.main != null) defaultFOV = Camera.main.fieldOfView;
+        
         isCounting = true;
+
+        //Sounds Settings
+        firstPlayInt = PlayerPrefs.GetInt(FirstPlay);
+
+        if (firstPlayInt == 0)
+        {
+            mainVolumeFloat = .8f;
+            SFXFloat = .5f;
+            musicVolimeFloat = .3f;
+            mainVolumeSlider.value = mainVolumeFloat;
+            SFXSlider.value = SFXFloat;
+            musicVolumeSlider.value = musicVolimeFloat;
+            PlayerPrefs.SetFloat(MainVolumePref, mainVolumeFloat);
+            PlayerPrefs.SetFloat(SFXPref, SFXFloat);
+            PlayerPrefs.SetFloat(MusicVolumePref, musicVolimeFloat);
+            PlayerPrefs.SetInt(FirstPlay, -1);
+        }
+        else
+        {
+            mainVolumeSlider.value = mainVolumeFloat;
+            SFXSlider.value = mainVolumeFloat;
+            musicVolumeSlider.value = musicVolimeFloat;
+            mainVolumeFloat = PlayerPrefs.GetFloat(MainVolumePref);
+            SFXFloat = PlayerPrefs.GetFloat(SFXPref);
+            musicVolimeFloat = PlayerPrefs.GetFloat(MusicVolumePref);
+        }
+
+        ContinueSettings();
     }
 
     // Update is called once per frame
@@ -84,6 +135,35 @@ public class gameManager : MonoBehaviour
         }
     }
 
+    #region Sounds
+
+    public void SaveSoundSettings()
+    {
+        PlayerPrefs.SetFloat(MainVolumePref, mainVolumeSlider.value);
+        PlayerPrefs.SetFloat(SFXPref, SFXSlider.value);
+        PlayerPrefs.SetFloat(MusicVolumePref, musicVolumeSlider.value);
+    }
+
+    void ContinueSettings()
+    {
+        mainVolumeFloat = PlayerPrefs.GetFloat(MainVolumePref);
+        SFXFloat = PlayerPrefs.GetFloat(MainVolumePref);
+        musicVolimeFloat = PlayerPrefs.GetFloat(MainVolumePref);
+
+        MainVolume.volume = mainVolumeFloat;
+        SFXVolume.volume = SFXFloat;
+        MusicVolume.volume = musicVolimeFloat;
+    }
+
+    void OnApplicationFocus(bool inFocus)
+    {
+        if (!inFocus) SaveSoundSettings();
+    }
+
+    #endregion
+
+    #region Pause & Unpause
+
     public void CursorLockPause()
     {
         Cursor.visible = true;
@@ -100,14 +180,10 @@ public class gameManager : MonoBehaviour
         menuCurrentlyOpen = null;
     }
 
-    public void PlayerIsDead()
-    {
-        scopeMask.SetActive(false);
-        isPaused = true;
-        playerDeadMenu.SetActive(true);
-        menuCurrentlyOpen = playerDeadMenu;
-        CursorLockPause();
-    }
+    #endregion
+
+
+    #region Enemies
 
     public void EnemyDecrement()
     {
@@ -131,6 +207,17 @@ public class gameManager : MonoBehaviour
             menuCurrentlyOpen.SetActive(true);
             CursorLockPause();
         }
+    }
+
+    #endregion
+
+    public void PlayerIsDead()
+    {
+        scopeMask.SetActive(false);
+        isPaused = true;
+        playerDeadMenu.SetActive(true);
+        menuCurrentlyOpen = playerDeadMenu;
+        CursorLockPause();
     }
 
     //IEnumerator WinGame()

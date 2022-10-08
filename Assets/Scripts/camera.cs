@@ -23,6 +23,9 @@ public class camera : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
+        sensHor = gameManager.instance.sensHor;
+        sensVert = gameManager.instance.sensVert;
+        
         // Get the Input
         float mouseX = Input.GetAxis("Mouse X") * Time.deltaTime * sensHor;
         float mouseY = Input.GetAxis("Mouse Y") * Time.deltaTime * sensVert;

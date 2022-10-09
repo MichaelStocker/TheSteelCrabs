@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class gameManager : MonoBehaviour
 {
@@ -27,7 +28,10 @@ public class gameManager : MonoBehaviour
     [Range(3, 10)] [SerializeField] int countDownTimer;
     public Image HPBar;
     public Text countDownDisplay;
-    public Text enemyCounter;
+    public TextMeshProUGUI hullOnList;
+    public TextMeshProUGUI wingsOnList;
+    public TextMeshProUGUI enginesOnList;
+
 
     [Header("----- Audio -----")]
     [SerializeField] public AudioSource MainVolume;
@@ -53,12 +57,18 @@ public class gameManager : MonoBehaviour
     public float defaultFOV;
 
     [Header("----- Misc -----")]
+    public bool playerCanEscape = false;
     public int enemyCount;
     public int waveCount;
     public bool isCounting;
     public bool isPaused;
     public bool isFiringRange;
     float timeScaleOrig;
+
+    [Header("----- Parts Collected -----")]
+    public bool hullCollected;
+    public bool engineCollected;
+    public bool wingsCollected;
 
     // Start is called before the first frame update
     void Awake()
@@ -109,6 +119,8 @@ public class gameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (wingsCollected && hullCollected && engineCollected) StartCoroutine(WinGame());
+
         if (Input.GetButtonDown("Cancel") && menuCurrentlyOpen != playerDeadMenu && menuCurrentlyOpen != winMenu)
         {
             scopeMask.SetActive(false);
@@ -185,17 +197,11 @@ public class gameManager : MonoBehaviour
 
     #region Enemies
 
-    public void EnemyDecrement()
-    {
-        enemyCount--;
-        enemyCounter.text = enemyCount.ToString("F0");
-        StartCoroutine(checkEnemyTotal());
-    }
+   
 
-    public void EnemyIncrement(int amount)
+    public void AdjustPartsList(TextMeshProUGUI tmpToStrike)
     {
-        enemyCount += amount;
-        enemyCounter.text = enemyCount.ToString("F0");
+        tmpToStrike.fontStyle = FontStyles.Strikethrough;
     }
 
     IEnumerator checkEnemyTotal()
@@ -203,9 +209,9 @@ public class gameManager : MonoBehaviour
         if (!isFiringRange && enemyCount <= 0)
         {
             yield return new WaitForSeconds(2);
-            menuCurrentlyOpen = winMenu;
+            /*menuCurrentlyOpen = winMenu;
             menuCurrentlyOpen.SetActive(true);
-            CursorLockPause();
+            CursorLockPause();*/
         }
     }
 
@@ -220,13 +226,13 @@ public class gameManager : MonoBehaviour
         CursorLockPause();
     }
 
-    //IEnumerator WinGame()
-    //{
-    //    yield return new WaitForSeconds(2);
-    //    menuCurrentlyOpen = winMenu;
-    //    menuCurrentlyOpen.SetActive(true);
-    //    CursorLockPause();
-    //}
+    IEnumerator WinGame()
+    {
+        yield return new WaitForSeconds(2);
+        menuCurrentlyOpen = winMenu;
+        menuCurrentlyOpen.SetActive(true);
+        CursorLockPause();
+    }
 
     public IEnumerator CountDownStart()
     {

@@ -25,7 +25,6 @@ public class EnemyDrops : MonoBehaviour
         {
             HealPlayer();
             Destroy(healthKitModel,0.2f);
-            //DestroyImmediate(healthKitModel, true);
         }
     }
 }

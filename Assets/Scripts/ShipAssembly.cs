@@ -11,11 +11,6 @@ public class ShipAssembly : MonoBehaviour
 
     [SerializeField] GameObject objectPickup;
 
-    [Header("----- Parts Collected -----")]
-    public bool hullCollected;
-    public bool engineCollected;
-    public bool wingsCollected;
-    public bool shipAssemblyCoomplete;
 
     // Start is called before the first frame update
     void Start()
@@ -28,8 +23,6 @@ public class ShipAssembly : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (wingsCollected && hullCollected && engineCollected) shipAssemblyCoomplete = true;
-        if (shipAssemblyCoomplete) Debug.Log("Ship Complete! You Win!");
 
     }
     void AssembleShip()
@@ -37,20 +30,22 @@ public class ShipAssembly : MonoBehaviour
         if (objectPickup.name == "Ship Wings Pickup")
         {
             shipWings.SetActive(true);
-            wingsCollected = true;
+            gameManager.instance.wingsCollected = true;
+            gameManager.instance.AdjustPartsList(gameManager.instance.wingsOnList);
         }
         else if (objectPickup.name == "Ship Hull Pickup")
         {
             shipHull.SetActive(true);
-            hullCollected = true;
+            gameManager.instance.hullCollected = true;
+            gameManager.instance.AdjustPartsList(gameManager.instance.hullOnList);
         }
         else if (objectPickup.name == "Ship Engines Pickup")
         {
             shipEngine.SetActive(true);
-            engineCollected = true;
+            gameManager.instance.engineCollected = true;
+            gameManager.instance.AdjustPartsList(gameManager.instance.enginesOnList);
         }
 
-        if (wingsCollected && hullCollected && engineCollected) shipAssemblyCoomplete = true;
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -58,7 +53,6 @@ public class ShipAssembly : MonoBehaviour
         {
             AssembleShip();
             Destroy(objectPickup, 0.2f);
-            //DestroyImmediate(healthKitModel, true);
         }
     }
 }

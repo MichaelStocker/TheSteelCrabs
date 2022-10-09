@@ -189,7 +189,7 @@ public class enemyAI : MonoBehaviour, IDamageable
         randy = rand.Next(10000);
         if (!gameManager.instance.isFiringRange && randy > 7000) Instantiate(medKitToDrop, transform.position, transform.rotation);
 
-        gameManager.instance.EnemyDecrement();
+        
         anim.SetBool("Dead", true);
         agent.enabled = false;
         //if (gameManager.instance.isFiringRange && !respawnEnemy)

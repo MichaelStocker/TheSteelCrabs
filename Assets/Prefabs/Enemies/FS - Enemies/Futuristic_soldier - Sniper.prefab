@@ -232,7 +232,7 @@ GameObject:
   - component: {fileID: 1314448867809254284}
   m_Layer: 7
   m_Name: Futuristic_soldier - Sniper
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -269,11 +269,8 @@ MonoBehaviour:
   rend: {fileID: 1347759232226116367}
   anim: {fileID: 5734806634465778505}
   HeadPosition: {fileID: 3052249698544577631}
-<<<<<<< Updated upstream
-  medKitToDrop: {fileID: 7584681947867221943, guid: 197b3590d8cdf0b47971d4187fa67e0a, type: 3}
-=======
-  medKitToDrop: {fileID: 1161834115648047373, guid: 39ca87953a064a443a20061ae7ac54c2, type: 3}
->>>>>>> Stashed changes
+  healthOrbPrefab: {fileID: 2591313647748346457, guid: 764e36c812d0d9a4a88b2fd642d3edea, type: 3}
+  healthOrbTarget: {fileID: 0}
   hP: 3
   speedChase: 5
   playerFaceSpeed: 8
@@ -281,7 +278,7 @@ MonoBehaviour:
   viewAngle: 180
   fireRate: 2
   bullet: {fileID: 4179400897317997961, guid: 096078a988f544e43a9f8cce72772860, type: 3}
-  bulletPos: {fileID: 0}
+  bulletPos: {fileID: 3780998438472062394}
   playerInRange: 0
 --- !u!195 &1314448867809254282
 NavMeshAgent:
@@ -297,7 +294,7 @@ NavMeshAgent:
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 200
-  m_StoppingDistance: 5
+  m_StoppingDistance: 0.8
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -941,6 +938,7 @@ Transform:
   - {fileID: 2597442051087907483}
   - {fileID: 3942811269690287693}
   - {fileID: 4135558544574007669}
+  - {fileID: 84271642399719686}
   m_Father: {fileID: 1066396419914871504}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -974,6 +972,36 @@ Transform:
   - {fileID: 6674762457530169879}
   m_Father: {fileID: 6050389782505751055}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3780998438472062393
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3780998438472062394}
+  m_Layer: 0
+  m_Name: Sniper Weapon Container
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3780998438472062394
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3780998438472062393}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 6.65, y: -0.11, z: -0.01}
+  m_LocalScale: {x: 3.3333309, y: 3.3333316, z: 3.3333328}
+  m_Children: []
+  m_Father: {fileID: 84271642399719686}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3968498705912930590
 GameObject:
@@ -2168,3 +2196,89 @@ Transform:
   m_Father: {fileID: 796392197607483358}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &477906997193385709
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 8277880553129177307}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: f260abb65e1a5ea4e9ce5a665ebb0d54, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f260abb65e1a5ea4e9ce5a665ebb0d54, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f260abb65e1a5ea4e9ce5a665ebb0d54, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f260abb65e1a5ea4e9ce5a665ebb0d54, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f260abb65e1a5ea4e9ce5a665ebb0d54, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.096
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f260abb65e1a5ea4e9ce5a665ebb0d54, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.202
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f260abb65e1a5ea4e9ce5a665ebb0d54, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.019
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f260abb65e1a5ea4e9ce5a665ebb0d54, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.00000062584854
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f260abb65e1a5ea4e9ce5a665ebb0d54, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.62305313
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f260abb65e1a5ea4e9ce5a665ebb0d54, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.78217953
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f260abb65e1a5ea4e9ce5a665ebb0d54, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.00000016030384
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f260abb65e1a5ea4e9ce5a665ebb0d54, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f260abb65e1a5ea4e9ce5a665ebb0d54, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f260abb65e1a5ea4e9ce5a665ebb0d54, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -102.92099
+      objectReference: {fileID: 0}
+    - target: {fileID: -5263612794085434014, guid: f260abb65e1a5ea4e9ce5a665ebb0d54, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.24
+      objectReference: {fileID: 0}
+    - target: {fileID: -5263612794085434014, guid: f260abb65e1a5ea4e9ce5a665ebb0d54, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.84
+      objectReference: {fileID: 0}
+    - target: {fileID: -5263612794085434014, guid: f260abb65e1a5ea4e9ce5a665ebb0d54, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f260abb65e1a5ea4e9ce5a665ebb0d54, type: 3}
+      propertyPath: m_Name
+      value: sniperBody
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f260abb65e1a5ea4e9ce5a665ebb0d54, type: 3}
+--- !u!4 &84271642399719686 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f260abb65e1a5ea4e9ce5a665ebb0d54, type: 3}
+  m_PrefabInstance: {fileID: 477906997193385709}
+  m_PrefabAsset: {fileID: 0}

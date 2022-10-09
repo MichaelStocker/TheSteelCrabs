@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2425369541821612667}
   - component: {fileID: 2425369541821612668}
   - component: {fileID: 6345690729564146065}
+  - component: {fileID: 317259063}
   m_Layer: 0
   m_Name: Player Old
   m_TagString: Player
@@ -49,7 +50,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 2425369541821612668}
-  controller2: {fileID: 0}
   mainCam: {fileID: 2425369542697125356}
   playerHealth: 10
   playerSpeed: 15
@@ -60,8 +60,13 @@ MonoBehaviour:
   fireRate: 0.1
   shootDistance: 100
   shootDamage: 1
+  maxAmmo: 1
+  currentAmmo: 1
+  reloadTime: 0
   gunStat: []
   gunModel: {fileID: 5848993915472511155}
+  gunModelSight: {fileID: 0}
+  gunModelSil: {fileID: 0}
   aud: {fileID: 6345690729564146065}
   playerDamage:
   - {fileID: 8300000, guid: 5be49344ff4d2384c8be4c9bf237d4fc, type: 3}
@@ -88,6 +93,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 5520d499e3f2d87499c5e3c75f8ae789, type: 3}
   playerFootSoundVol: 0.5
   gunShootSoundVol: 0.5
+  controller2: {fileID: 0}
 --- !u!33 &2425369541821612666
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -251,6 +257,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!136 &317259063
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2425369541821612669}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 3
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!1 &2425369542697125358
 GameObject:
   m_ObjectHideFlags: 0

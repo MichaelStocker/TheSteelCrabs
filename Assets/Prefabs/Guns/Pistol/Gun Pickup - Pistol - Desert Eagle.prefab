@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &5828464838643474811
+--- !u!1 &1991363915585579966
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,60 +8,60 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 9155897048680412811}
-  - component: {fileID: 6084219033276933686}
-  - component: {fileID: 6626980564976023213}
-  - component: {fileID: 4897391341537320164}
-  - component: {fileID: 2551374870531302003}
+  - component: {fileID: 747321423889181491}
+  - component: {fileID: 3292048233040475645}
+  - component: {fileID: 8889551662930266568}
+  - component: {fileID: 2967263400871867666}
+  - component: {fileID: 641809532148141506}
   m_Layer: 0
-  m_Name: FS - Sight Attachment - Assault Rifle P40
+  m_Name: Gun Pickup - Pistol - Desert Eagle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &9155897048680412811
+--- !u!4 &747321423889181491
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5828464838643474811}
+  m_GameObject: {fileID: 1991363915585579966}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 3, y: 1.5, z: 17}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 0.55, y: 0.5, z: 0.5}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6084219033276933686
+--- !u!114 &3292048233040475645
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5828464838643474811}
+  m_GameObject: {fileID: 1991363915585579966}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7efaa441afdfa58439c46c6883c3c91e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gunStat: {fileID: 0}
---- !u!33 &6626980564976023213
+  gunStat: {fileID: 11400000, guid: fba3d6f24bd6720499fb2d959f618dab, type: 2}
+--- !u!33 &8889551662930266568
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5828464838643474811}
-  m_Mesh: {fileID: 4300000, guid: 016e81ae35cd6f04e96cd028e3081f36, type: 2}
---- !u!23 &4897391341537320164
+  m_GameObject: {fileID: 1991363915585579966}
+  m_Mesh: {fileID: -7182689631186222527, guid: 8f9696fb6017be144a307b6586855ac0, type: 3}
+--- !u!23 &2967263400871867666
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5828464838643474811}
+  m_GameObject: {fileID: 1991363915585579966}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -74,9 +74,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 44ec46c0abd40c44ca2992719d04e48c, type: 2}
-  - {fileID: 2100000, guid: e0cd7be47c2e46d47a858d028dc4c562, type: 2}
-  - {fileID: 2100000, guid: deaf360d902f3c14ba0e822695daf423, type: 2}
+  - {fileID: 2100000, guid: 7c16b6e19b642c247ba765631635ff9e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -98,16 +96,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &2551374870531302003
-BoxCollider:
+--- !u!135 &641809532148141506
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5828464838643474811}
+  m_GameObject: {fileID: 1991363915585579966}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.8, y: 1.1, z: 4.7}
-  m_Center: {x: 0, y: 0.3, z: 0}
+  m_Radius: 0.8
+  m_Center: {x: 0, y: 0, z: 0}

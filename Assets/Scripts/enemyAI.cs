@@ -71,6 +71,7 @@ public class enemyAI : MonoBehaviour, IDamageable
                 {
                     canSeePlayer();
                 }
+
                 if (agent.remainingDistance < 0.1f && agent.destination != gameManager.instance.player.transform.position && roamingEnemy)
                 {
                     roam();

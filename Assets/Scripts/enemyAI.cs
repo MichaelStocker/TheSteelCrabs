@@ -17,7 +17,7 @@ public class enemyAI : MonoBehaviour, IDamageable
     [Range(1, 10)][SerializeField] float speedChase;
     [Range(1, 10)][SerializeField] int playerFaceSpeed;
     [Range(1, 50)][SerializeField] int roamRadius;
-    [Range(1, 360)][SerializeField] int viewAngle;
+    [Range(1, 180)][SerializeField] int viewAngle;
 
     [Header("----- Weapon Stats -----")]
     [SerializeField] float fireRate;

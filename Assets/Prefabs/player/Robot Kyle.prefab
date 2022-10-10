@@ -398,7 +398,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0aa851515cd3747d6b3b3e461199a2ed, type: 2}
+  - {fileID: 5536123062436096700, guid: 3bf3120efe0feb14ca557c9e6151f54c, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -423,7 +423,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 4300000, guid: 320b1c2af77554f99a1658df4a6d3d5c, type: 3}
+  m_Mesh: {fileID: -3248716571764886803, guid: 3bf3120efe0feb14ca557c9e6151f54c, type: 3}
   m_Bones:
   - {fileID: 1339993602179951626}
   - {fileID: 5874546344073419002}
@@ -1305,10 +1305,11 @@ MonoBehaviour:
   maxAmmo: 6
   currentAmmo: 6
   reloadTime: 0
+  reloadSound: {fileID: 8300000, guid: 7dc85437e97ffee41ad32d3090a90e48, type: 3}
   gunStat: []
   gunModel: {fileID: 5848993915365097060}
-  gunModelSight: {fileID: 0}
-  gunModelSil: {fileID: 0}
+  gunModelSight: {fileID: 5828464838643474811, guid: 2732280c4e4902e489ccd5e5041fb3e6, type: 3}
+  gunModelSil: {fileID: 5828464838643474811, guid: 2732280c4e4902e489ccd5e5041fb3e6, type: 3}
   aud: {fileID: 8367949803931657338}
   playerDamage:
   - {fileID: 8300000, guid: 5be49344ff4d2384c8be4c9bf237d4fc, type: 3}
@@ -1353,7 +1354,7 @@ CharacterController:
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!82 &8367949803931657338
 AudioSource:
   m_ObjectHideFlags: 0

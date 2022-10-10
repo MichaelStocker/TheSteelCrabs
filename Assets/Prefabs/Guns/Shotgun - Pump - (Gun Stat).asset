@@ -15,7 +15,11 @@ MonoBehaviour:
   shootRate: 1
   shootDist: 10
   shootDamage: 5
-  ammoCount: 10
-  model: {fileID: 2275594696051324843, guid: 2d806e7bcf8c29d40a48d20fefb178c4, type: 3}
-  sound: {fileID: 8300000, guid: 73b0e478c9b0c4242bc3c687a6869e81, type: 3}
+  maximAmmo: 8
+  currAmmo: 8
+  reloTime: 3
+  model: {fileID: 5828464838643474811, guid: e13dd8701c0cd6e43b6428dbee46c6e4, type: 3}
+  sightModel: {fileID: 5828464838643474811, guid: 2732280c4e4902e489ccd5e5041fb3e6, type: 3}
+  silModel: {fileID: 5828464838643474811, guid: 2732280c4e4902e489ccd5e5041fb3e6, type: 3}
+  sound: {fileID: 8300000, guid: 17bae490c13596142a1e8dd99402589e, type: 3}
   hitEffect: {fileID: 618435168828052837, guid: 3432e78c49e080a47a3b22b5ef8da435, type: 3}

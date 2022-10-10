@@ -24,6 +24,7 @@ public class playerController : MonoBehaviour, IDamageable
     [SerializeField] int maxAmmo;
     [SerializeField] int currentAmmo;
     [Range(0, 3)] [SerializeField] float reloadTime;
+    [SerializeField] AudioClip reloadSound;
 
     [SerializeField] List<GunStats> gunStat = new List<GunStats>();
     [SerializeField] GameObject gunModel;
@@ -90,6 +91,7 @@ public class playerController : MonoBehaviour, IDamageable
         if (currentAmmo <= 0)
         {
             isReloading = true;
+            aud.PlayOneShot(reloadSound);
             Debug.Log("Reloading");
             yield return new WaitForSeconds(reloadTime);
             currentAmmo = maxAmmo;

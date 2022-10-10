@@ -189,6 +189,7 @@ MonoBehaviour:
   rend: {fileID: 5736899633423590521}
   anim: {fileID: 5736899633419508409}
   HeadPosition: {fileID: 5736899633428867455}
+  medKitToDrop: {fileID: 0}
   hP: 5
   speedChase: 5
   playerFaceSpeed: 5
@@ -197,6 +198,7 @@ MonoBehaviour:
   fireRate: 0.4
   bullet: {fileID: 4179400897317997961, guid: 0b85a0e39e320cf44986ad242d7684a7, type: 3}
   bulletPos: {fileID: 5736899633429296495}
+  enemyPrefab: {fileID: 0}
   playerInRange: 0
 --- !u!195 &5736899633419508408
 NavMeshAgent:
@@ -229,7 +231,7 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5736899633428867341}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: c6acf3f29c109e4439950c8f6a85cb2b, type: 3}
+  m_Avatar: {fileID: 9000000, guid: 8cf152a0a06b3dc47a7c6d40918d95a9, type: 3}
   m_Controller: {fileID: 9100000, guid: 16edae0e2eec8cf4285ede05b0026fe4, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0

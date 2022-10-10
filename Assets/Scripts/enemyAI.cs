@@ -18,6 +18,7 @@ public class enemyAI : MonoBehaviour, IDamageable
     [Range(1, 10)][SerializeField] int playerFaceSpeed;
     [Range(1, 50)][SerializeField] int roamRadius;
     [Range(1, 180)][SerializeField] int viewAngle;
+    public bool roamingEnemy;
 
     [Header("----- Weapon Stats -----")]
     [SerializeField] float fireRate;
@@ -56,17 +57,22 @@ public class enemyAI : MonoBehaviour, IDamageable
         if (!gameManager.instance.isFiringRange && agent.enabled)
         {
             angle = Vector3.Angle(playerDir, transform.forward);
-            playerDir = gameManager.instance.player.transform.position - HeadPosition.transform.position;
+            playerDir = gameManager.instance.player.transform.position - HeadPosition.transform.position; playerDir.y += 1;
 
             anim.SetFloat("Speed", Mathf.Lerp(anim.GetFloat("Speed"), agent.velocity.normalized.magnitude, Time.deltaTime * 4));
             if (!takingDmg)
             {
+                if (!roamingEnemy)
+                {
+                    agent.stoppingDistance = stoppingDistanceOrig;
+                    agent.SetDestination(gameManager.instance.player.transform.position);
+                }
                 if (playerInRange)
                 {
                     canSeePlayer();
-
                 }
-                if (agent.remainingDistance < 0.1f && agent.destination != gameManager.instance.player.transform.position)
+
+                if (agent.remainingDistance < 0.1f && agent.destination != gameManager.instance.player.transform.position && roamingEnemy)
                 {
                     roam();
                 }
@@ -100,17 +106,17 @@ public class enemyAI : MonoBehaviour, IDamageable
     }
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (roamingEnemy && other.CompareTag("Player"))
         {
-            playerInRange = false;
             lastPlayerPos = gameManager.instance.player.transform.position;
             agent.stoppingDistance = 0;
         }
+        playerInRange = false;
     }
 
     void FacePlayer()
     {
-        playerDir.y = 0;
+        //playerDir.y = 0;
         Quaternion rotation = Quaternion.LookRotation(playerDir);
         transform.rotation = Quaternion.Lerp(transform.rotation, rotation, Time.deltaTime * playerFaceSpeed);
     }
@@ -189,7 +195,7 @@ public class enemyAI : MonoBehaviour, IDamageable
         randy = rand.Next(10000);
         if (!gameManager.instance.isFiringRange && randy > 7000) Instantiate(medKitToDrop, transform.position, transform.rotation);
 
-        
+
         anim.SetBool("Dead", true);
         agent.enabled = false;
         //if (gameManager.instance.isFiringRange && !respawnEnemy)
@@ -197,11 +203,11 @@ public class enemyAI : MonoBehaviour, IDamageable
         //    StartCoroutine(EnemyRespawn());
         //    respawnEnemy = true;
         //}
-            foreach (Collider col in GetComponents<Collider>())
-            {
-                col.enabled = false;
-            }
-        
+        foreach (Collider col in GetComponents<Collider>())
+        {
+            col.enabled = false;
+        }
+
     }
     IEnumerator EnemyRespawn()
     {

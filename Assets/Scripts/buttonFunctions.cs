@@ -34,7 +34,17 @@ public class buttonFunctions : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene("SpaceScene");
+        Time.timeScale = 1;
+    }
+    public void ReturnToMainMenu()
+    {
+        SceneManager.LoadScene("Main Menu");
+    }
+    public void FiringRange()
+    {
+        SceneManager.LoadScene("FiringRangeScene");
+        Time.timeScale = 1;
     }
 
     public void BackMainMenu()

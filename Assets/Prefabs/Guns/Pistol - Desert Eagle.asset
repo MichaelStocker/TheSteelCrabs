@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 040a5828834fc8042b076df360dc4791, type: 3}
   m_Name: Pistol - Desert Eagle
   m_EditorClassIdentifier: 
-  shootRate: 0.15
+  shootRate: 0.5
   shootDist: 30
-  shootDamage: 2
-  maximAmmo: 14
-  currAmmo: 14
-  reloTime: 1
+  shootDamage: 1
+  maximAmmo: 15
+  currAmmo: 15
+  reloTime: 0.5
   model: {fileID: 1991363915585579966, guid: e1db96f1c8069c649a44b2e70046bf6d, type: 3}
   sightModel: {fileID: 5828464838643474811, guid: 2732280c4e4902e489ccd5e5041fb3e6, type: 3}
   silModel: {fileID: 5828464838643474811, guid: 2732280c4e4902e489ccd5e5041fb3e6, type: 3}

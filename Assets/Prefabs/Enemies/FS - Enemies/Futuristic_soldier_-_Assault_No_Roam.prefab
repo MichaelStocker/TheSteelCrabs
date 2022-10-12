@@ -2636,7 +2636,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agent: {fileID: 1925294353120954357}
   rend: {fileID: 1887547713293066096}
-  anim: {fileID: 5121711509706802998}
+  anim: {fileID: 5121711509706802998, guid: b2507e431f3fca24c8a4defe44b4b19a, type: 3}
   HeadPosition: {fileID: 2512478255474454560}
   medKitToDrop: {fileID: 3168475863392386917, guid: c1ad0b071a25d7843b13a504d9c7e3f0, type: 3}
   hP: 5

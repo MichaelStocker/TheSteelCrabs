@@ -281,6 +281,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ba48524693a5ac14eb6a279aa0e8c441, type: 3}
+--- !u!1 &907745516 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6079324698857870108, guid: d9ce64fd1fefdee46a937759eef4e1de, type: 3}
+  m_PrefabInstance: {fileID: 8891649959857733403}
+  m_PrefabAsset: {fileID: 0}
+--- !u!111 &907745517
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 907745516}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 1827226128182048838, guid: 268bf7d0304e06a4180bdb56df563100, type: 3}
+  m_Animations: []
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1001 &963314688
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -292,6 +312,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Floor
       objectReference: {fileID: 0}
+    - target: {fileID: 2677911823661834826, guid: 1496ab0b7db609d4bb805998d77241ec, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 6af50b9ee8844bd46862aebde157c0ed, type: 2}
     - target: {fileID: 2677911823661834828, guid: 1496ab0b7db609d4bb805998d77241ec, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -355,7 +379,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 747321423889181491, guid: e1db96f1c8069c649a44b2e70046bf6d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.00000023841858
+      value: 0.89
       objectReference: {fileID: 0}
     - target: {fileID: 747321423889181491, guid: e1db96f1c8069c649a44b2e70046bf6d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -613,6 +637,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gun Pickup - Sniper
       objectReference: {fileID: 0}
+    - target: {fileID: 6626980564976023213, guid: 0a970f5068d151449a5eb5f8f29d68e4, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -4157798734872115665, guid: e82157e95a68b9841b9c5dfec3d04c39, type: 3}
     - target: {fileID: 9155897048680412811, guid: 0a970f5068d151449a5eb5f8f29d68e4, type: 3}
       propertyPath: m_RootOrder
       value: 6

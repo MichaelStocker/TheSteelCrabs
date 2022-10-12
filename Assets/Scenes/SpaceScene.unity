@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17316318, g: 0.16457182, b: 0.29665613, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1154,7 +1154,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9155897048680412811, guid: c3fb52ba9fb505445b808fe2371f57e4, type: 3}
       propertyPath: m_RootOrder
-      value: 19
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 9155897048680412811, guid: c3fb52ba9fb505445b808fe2371f57e4, type: 3}
       propertyPath: m_LocalScale.x
@@ -3263,6 +3263,63 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4785209358981938, guid: e60b9bdfa5d189e44b91680db5645e86, type: 3}
   m_PrefabInstance: {fileID: 2070719353}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &700467081
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6079324698857870108, guid: d9ce64fd1fefdee46a937759eef4e1de, type: 3}
+      propertyPath: m_Name
+      value: Robot Kyle
+      objectReference: {fileID: 0}
+    - target: {fileID: 7063122244728807695, guid: d9ce64fd1fefdee46a937759eef4e1de, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7063122244728807695, guid: d9ce64fd1fefdee46a937759eef4e1de, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 676.15155
+      objectReference: {fileID: 0}
+    - target: {fileID: 7063122244728807695, guid: d9ce64fd1fefdee46a937759eef4e1de, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 291.88242
+      objectReference: {fileID: 0}
+    - target: {fileID: 7063122244728807695, guid: d9ce64fd1fefdee46a937759eef4e1de, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 598.53564
+      objectReference: {fileID: 0}
+    - target: {fileID: 7063122244728807695, guid: d9ce64fd1fefdee46a937759eef4e1de, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7063122244728807695, guid: d9ce64fd1fefdee46a937759eef4e1de, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7063122244728807695, guid: d9ce64fd1fefdee46a937759eef4e1de, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7063122244728807695, guid: d9ce64fd1fefdee46a937759eef4e1de, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7063122244728807695, guid: d9ce64fd1fefdee46a937759eef4e1de, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7063122244728807695, guid: d9ce64fd1fefdee46a937759eef4e1de, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7063122244728807695, guid: d9ce64fd1fefdee46a937759eef4e1de, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d9ce64fd1fefdee46a937759eef4e1de, type: 3}
 --- !u!1 &707841938
 GameObject:
   m_ObjectHideFlags: 0
@@ -3533,7 +3590,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7832242580281233692, guid: 9dac6089178699541adcce293c5dd1b7, type: 3}
       propertyPath: m_RootOrder
-      value: 20
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 7832242580281233692, guid: 9dac6089178699541adcce293c5dd1b7, type: 3}
       propertyPath: m_LocalScale.z
@@ -3712,10 +3769,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 327cedcf1a3419c4895214d03949d82d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shipHull: {fileID: 7468887890150250072}
-  shipEngine: {fileID: 431189021}
-  shipWings: {fileID: 1729508546}
-  objectPickup: {fileID: 785201112}
 --- !u!4 &805361078 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4558708785850488, guid: bcb5c50335d5ead4abea041e6e413ccd, type: 3}
@@ -3780,8 +3833,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Space Ship Engines
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: a201392b078b9b3438828e4d9f5dc056, type: 2}
-  m_sharedMaterial: {fileID: 4733169832852734224, guid: a201392b078b9b3438828e4d9f5dc056, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -5051,10 +5104,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 327cedcf1a3419c4895214d03949d82d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shipHull: {fileID: 7468887890150250072}
-  shipEngine: {fileID: 431189021}
-  shipWings: {fileID: 1729508546}
-  objectPickup: {fileID: 1146078084}
 --- !u!1001 &1155662909
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5180,9 +5229,9 @@ Transform:
   - {fileID: 1350936950}
   - {fileID: 1261342304}
   - {fileID: 1219890492}
+  - {fileID: 1299649289}
   - {fileID: 2132705941}
   - {fileID: 1290198025}
-  - {fileID: 1299649289}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 35.161, z: 0}
@@ -5680,7 +5729,7 @@ Transform:
   m_LocalScale: {x: 1, y: 0, z: 1}
   m_Children: []
   m_Father: {fileID: 1157749025}
-  m_RootOrder: 19
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1301010697
 GameObject:
@@ -7861,6 +7910,133 @@ Transform:
   m_Father: {fileID: 7468436717211855189}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1732018307
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1732018309}
+  - component: {fileID: 1732018308}
+  m_Layer: 0
+  m_Name: Music (Out of Combat)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &1732018308
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1732018307}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: dd74d65aa7706584e9c10e79b43af6c5, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &1732018309
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1732018307}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 833.79333, y: 357.32422, z: 659.66534}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1761347562
 GameObject:
   m_ObjectHideFlags: 0
@@ -7992,71 +8168,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4620361283764052405, guid: 6eb41c1968a48de4893e4fc18281dcaf, type: 3}
   m_PrefabInstance: {fileID: 191472976}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &1783433862
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 5648420009861787767, guid: ba25c31334de1c8439021c0a82808486, type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: -3248716571764886803, guid: 3bf3120efe0feb14ca557c9e6151f54c, type: 3}
-    - target: {fileID: 5648420009861787767, guid: ba25c31334de1c8439021c0a82808486, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 5536123062436096700, guid: 3bf3120efe0feb14ca557c9e6151f54c, type: 3}
-    - target: {fileID: 6079324698857870108, guid: ba25c31334de1c8439021c0a82808486, type: 3}
-      propertyPath: m_Name
-      value: Robot Kyle
-      objectReference: {fileID: 0}
-    - target: {fileID: 7063122244728807695, guid: ba25c31334de1c8439021c0a82808486, type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7063122244728807695, guid: ba25c31334de1c8439021c0a82808486, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 746.8157
-      objectReference: {fileID: 0}
-    - target: {fileID: 7063122244728807695, guid: ba25c31334de1c8439021c0a82808486, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 293
-      objectReference: {fileID: 0}
-    - target: {fileID: 7063122244728807695, guid: ba25c31334de1c8439021c0a82808486, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 773.35944
-      objectReference: {fileID: 0}
-    - target: {fileID: 7063122244728807695, guid: ba25c31334de1c8439021c0a82808486, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7063122244728807695, guid: ba25c31334de1c8439021c0a82808486, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7063122244728807695, guid: ba25c31334de1c8439021c0a82808486, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7063122244728807695, guid: ba25c31334de1c8439021c0a82808486, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7063122244728807695, guid: ba25c31334de1c8439021c0a82808486, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7063122244728807695, guid: ba25c31334de1c8439021c0a82808486, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7063122244728807695, guid: ba25c31334de1c8439021c0a82808486, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: ba25c31334de1c8439021c0a82808486, type: 3}
 --- !u!1001 &1785785641
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8678,8 +8789,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Space Ship Hull
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: a201392b078b9b3438828e4d9f5dc056, type: 2}
-  m_sharedMaterial: {fileID: 4733169832852734224, guid: a201392b078b9b3438828e4d9f5dc056, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -8973,10 +9084,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 327cedcf1a3419c4895214d03949d82d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shipHull: {fileID: 7468887890150250072}
-  shipEngine: {fileID: 431189021}
-  shipWings: {fileID: 1729508546}
-  objectPickup: {fileID: 1892599647}
 --- !u!1001 &1903231453
 PrefabInstance:
   m_ObjectHideFlags: 0

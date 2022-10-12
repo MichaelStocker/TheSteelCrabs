@@ -8,7 +8,7 @@ public class Spawner : MonoBehaviour
     [SerializeField] int maxEnemies;
     //how quickly they spawn
     [SerializeField] int timer;
-
+    public bool ignoreSpawnerRequirements;
     int enemiesSpawned;
     bool isSpawning;
     bool startSpawning;
@@ -20,6 +20,7 @@ public class Spawner : MonoBehaviour
 
     private void Update()
     {
+        if (ignoreSpawnerRequirements) startSpawning = true;
         if (startSpawning)
         {
             StartCoroutine(spawn());
@@ -41,7 +42,7 @@ public class Spawner : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (!ignoreSpawnerRequirements && other.CompareTag("Player"))
         {
             startSpawning = true;
         }

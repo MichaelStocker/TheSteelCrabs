@@ -1,11 +1,16 @@
 fileFormatVersion: 2
-guid: 72d0921c921ec3e4aa1e07b9e2c73684
+guid: c40fa4467f5ceae4b80c49036290e270
 ModelImporter:
-  serializedVersion: 20300
+  serializedVersion: 20101
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Magazine
+    second: {fileID: 2100000, guid: 3b18235e8b0defe4c8a347e80629d116, type: 2}
   materials:
-    materialImportMode: 2
+    materialImportMode: 1
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -95,8 +100,6 @@ ModelImporter:
   animationType: 2
   humanoidOversampling: 1
   avatarSetup: 0
-  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
-  remapMaterialsIfMaterialImportModeIsNone: 0
   additionalBone: 0
   userData: 
   assetBundleName: 

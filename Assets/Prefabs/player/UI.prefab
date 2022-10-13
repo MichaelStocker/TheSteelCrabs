@@ -2476,7 +2476,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4143467296180450315
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2917,6 +2917,12 @@ MonoBehaviour:
   winMenu: {fileID: 4143467297169059941}
   startMenu: {fileID: 0}
   settingsMenu: {fileID: 3748624733922413495}
+  creditsMenu: {fileID: 0}
+  eventSystem: {fileID: 4143467297570421387}
+  buttonToSelect: {fileID: 0}
+  startButton: {fileID: 0}
+  resumeButton: {fileID: 4143467297503363785}
+  backButton: {fileID: 6297549063832021522}
   countDownTimer: 5
   HPBar: {fileID: 4143467297711487383}
   countDownDisplay: {fileID: 2138754410}
@@ -5555,7 +5561,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 4143467297503363785}
+  m_FirstSelected: {fileID: 0}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!114 &244232036
@@ -6275,8 +6281,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 15, y: -60}
-  m_SizeDelta: {x: 200, y: 100}
+  m_AnchoredPosition: {x: 15, y: -96.9}
+  m_SizeDelta: {x: 200, y: 138.1132}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5994519412974789676
 CanvasRenderer:
@@ -6319,7 +6325,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "You Elimated \nAll Enemies"
+  m_Text: "You have collected\nall parts of the ship!\n You Win!"
 --- !u!1 &5519902079930073455
 GameObject:
   m_ObjectHideFlags: 0

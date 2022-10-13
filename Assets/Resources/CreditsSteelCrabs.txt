@@ -1,0 +1,25 @@
+#These do nothing, #denote comments
+!Group Members
+Michael Stocker
+Brandon Vargas
+Steven Fabian
+Cheyanne Wickersheim
+!UI
+Brandon Vargas
+!Scenes/Environments
+Michael Stocker
+!Player
+Cheyanne Wickersheim
+!Enemies
+Steven Fabian
+Models- https://assetstore.unity.com/packages/3d/characters/humanoids/sci-fi/futuristic-soldier-scifi-character-202085
+Enemy Pistol - https://assetstore.unity.com/packages/3d/props/guns/sci-fi-pistol-pbr-213679
+Enemy Sniper - https://assetstore.unity.com/packages/3d/props/weapons/mac-sci-fi-sniper-rifle-188585
+Enemy Assault - https://assetstore.unity.com/packages/3d/props/guns/fps-syntax-p40-model-textures-111831
+!Sounds
+Cheyanne Wickersheim
+!Weapons
+Steven Fabian
+Player Weapons - https://assetstore.unity.com/packages/3d/props/guns/guns-pack-low-poly-guns-collection-192553
+!Misc
+Teleporter- Michael Stocker

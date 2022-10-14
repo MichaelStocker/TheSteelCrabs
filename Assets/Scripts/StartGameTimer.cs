@@ -17,11 +17,11 @@ public class StartGameTimer : MonoBehaviour
 
     IEnumerator CountDownStart()
     {
-        //Pauses game & turns off player functionality
-        gameManager.instance.playerScript.enabled = false;
+        //Pauses game & turns on text
         Time.timeScale = 0;
-        
-        while(countDownTimer != 0)
+        countDownDisplay.gameObject.SetActive(true);
+
+        while (countDownTimer != 0)
         {
             //Sets text to int's value
             countDownDisplay.text = countDownTimer.ToString();
@@ -35,14 +35,15 @@ public class StartGameTimer : MonoBehaviour
 
         //Resumes game & gives back player functionality
         Time.timeScale = 1;
-        gameManager.instance.playerScript.enabled = true;
 
         //Lets player know they can move now
-        countDownDisplay.text = "Eliminate All Enemies";
+        countDownDisplay.text = "Go!!!";
 
         //Disables the text getting start off the screen
         yield return new WaitForSeconds(1f);
         countDownDisplay.gameObject.SetActive(false);
+        countDownDisplay.text = "";
+        //isCounting = false;
     }
 
 }

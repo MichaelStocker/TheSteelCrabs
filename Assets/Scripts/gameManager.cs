@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
+using System.IO;
 using UnityEngine.UI;
 using TMPro;
 
@@ -23,6 +25,14 @@ public class gameManager : MonoBehaviour
     public GameObject winMenu;
     public GameObject startMenu;
     public GameObject settingsMenu;
+    public GameObject creditsMenu;
+
+    public UnityEngine.EventSystems.EventSystem eventSystem;
+    public GameObject buttonToSelect;
+    public GameObject startButton;
+    public GameObject resumeButton;
+    public GameObject backButtonSettings;
+    public GameObject backButtonCredits;
 
     [Header("----- UI -----")]
     [Range(3, 10)] [SerializeField] int countDownTimer;
@@ -50,6 +60,10 @@ public class gameManager : MonoBehaviour
     public Slider mainVolumeSlider, SFXSlider, musicVolumeSlider;
     public float mainVolumeFloat, SFXFloat, musicVolimeFloat;
 
+    List<string> headers = new List<string>();
+    List<List<string>> titles = new List<List<string>>();
+    List<GameObject> creditsTexts = new List<GameObject>();
+
     [Header("----- Scope -----")]
     public GameObject scopeMask;
     public GameObject basicReticle;
@@ -75,21 +89,29 @@ public class gameManager : MonoBehaviour
     {
         instance = this;
 
+        //Sets player's object, controller, spawn pos and sensitivity
         player = GameObject.FindGameObjectWithTag("Player");
         if (player != null) playerScript = player.GetComponent<playerController>();
         playerSpawnPos = GameObject.Find("Player Spawn Pos");
         sensHor = 600;
         sensVert = 600;
 
+        //Keeps the games original time scale
         timeScaleOrig = Time.timeScale;
 
+        //Sets camera fov
         if (Camera.main != null) defaultFOV = Camera.main.fieldOfView;
         
+        //A bool for the countdown timer feature
         isCounting = true;
+
+        //Sets the time scale to one for any time we are going into a different scene
+        Time.timeScale = 1;
 
         //Sounds Settings
         firstPlayInt = PlayerPrefs.GetInt(FirstPlay);
 
+        //If this is the users first time playing it sets the default settings
         if (firstPlayInt == 0)
         {
             mainVolumeFloat = .8f;
@@ -103,6 +125,7 @@ public class gameManager : MonoBehaviour
             PlayerPrefs.SetFloat(MusicVolumePref, musicVolimeFloat);
             PlayerPrefs.SetInt(FirstPlay, -1);
         }
+        //If not it sets it to the settings they last left them on
         else
         {
             mainVolumeSlider.value = mainVolumeFloat;
@@ -119,19 +142,40 @@ public class gameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (wingsCollected && hullCollected && engineCollected) StartCoroutine(WinGame());
-
-        if (Input.GetButtonDown("Cancel") && menuCurrentlyOpen != playerDeadMenu && menuCurrentlyOpen != winMenu)
+        //Check for escape key to pause game
+        if (Input.GetButtonDown("Cancel") && menuCurrentlyOpen == null)
         {
-            scopeMask.SetActive(false);
-            isPaused = !isPaused;
-            menuCurrentlyOpen = pauseMenu;
-            menuCurrentlyOpen.SetActive(isPaused);
-            if (isPaused) CursorLockPause();
-            else CursorUnlockUnpause();
+            //Bug fix to getting settings menu stuck
+            if(isPaused && menuCurrentlyOpen == settingsMenu)
+            {
+                settingsMenu.SetActive(false);
+                menuCurrentlyOpen = pauseMenu;
+                menuCurrentlyOpen.SetActive(true);
+            }
+            //Pauses game or unpauses
+            else
+            {
+                scopeMask.SetActive(false);
+                isPaused = !isPaused;
+                menuCurrentlyOpen = pauseMenu;
+                menuCurrentlyOpen.SetActive(isPaused);
+
+                if (isPaused)
+                {
+                    CursorLockPause();
+
+                    //Sets the highlighted button to the needed button
+                    buttonToSelect = resumeButton;
+                    eventSystem.SetSelectedGameObject(buttonToSelect);
+                }
+                else CursorUnlockUnpause();
+            }
         }
+
+        //Makes sure game isnt paused
         if (!isPaused)
         {
+            //Does a zoom effect
             if (Input.GetMouseButton(1))
             {
                 ZoomCamera(defaultFOV / zoomMult);
@@ -145,6 +189,9 @@ public class gameManager : MonoBehaviour
                 basicReticle.SetActive(true);
             }
         }
+
+        //Check for win game condition
+        if (wingsCollected && hullCollected && engineCollected) StartCoroutine(WinGame());
     }
 
     #region Sounds
@@ -195,10 +242,6 @@ public class gameManager : MonoBehaviour
     #endregion
 
 
-    #region Enemies
-
-   
-
     public void AdjustPartsList(TextMeshProUGUI tmpToStrike)
     {
         tmpToStrike.fontStyle = FontStyles.Strikethrough;
@@ -215,10 +258,9 @@ public class gameManager : MonoBehaviour
         }
     }
 
-    #endregion
-
     public void PlayerIsDead()
     {
+        //Makes sure to unzoom, pause the game, and turns on the dead menu
         scopeMask.SetActive(false);
         isPaused = true;
         playerDeadMenu.SetActive(true);
@@ -228,6 +270,7 @@ public class gameManager : MonoBehaviour
 
     IEnumerator WinGame()
     {
+        //Waits 2 seconds and opens win menu
         yield return new WaitForSeconds(2);
         menuCurrentlyOpen = winMenu;
         menuCurrentlyOpen.SetActive(true);
@@ -261,6 +304,7 @@ public class gameManager : MonoBehaviour
         //Disables the text getting start off the screen
         yield return new WaitForSeconds(1f);
         countDownDisplay.gameObject.SetActive(false);
+        countDownDisplay.text = "";
         isCounting = false;
     }
 

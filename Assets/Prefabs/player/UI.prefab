@@ -2814,7 +2814,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4143467296180450315
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3256,6 +3256,12 @@ MonoBehaviour:
   winMenu: {fileID: 4143467297169059941}
   startMenu: {fileID: 0}
   settingsMenu: {fileID: 3748624733922413495}
+  creditsMenu: {fileID: 0}
+  eventSystem: {fileID: 4143467297570421387}
+  buttonToSelect: {fileID: 0}
+  startButton: {fileID: 0}
+  resumeButton: {fileID: 4143467297503363785}
+  backButton: {fileID: 6297549063832021522}
   countDownTimer: 5
   HPBar: {fileID: 4143467297711487383}
   countDownDisplay: {fileID: 2138754410}
@@ -5894,7 +5900,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 4143467297503363785}
+  m_FirstSelected: {fileID: 0}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!114 &244232036

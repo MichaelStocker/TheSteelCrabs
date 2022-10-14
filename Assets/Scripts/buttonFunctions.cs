@@ -9,8 +9,10 @@ public class buttonFunctions : MonoBehaviour
 {
     public void Resume()
     {
+        //If the game is paused
         if (gameManager.instance.isPaused)
         {
+            //The game is unpaused
             gameManager.instance.isPaused = !gameManager.instance.isPaused;
             gameManager.instance.CursorUnlockUnpause();
         }
@@ -18,12 +20,14 @@ public class buttonFunctions : MonoBehaviour
 
     public void Restart()
     {
+        //Exits paused state and restarts scene
         gameManager.instance.CursorUnlockUnpause();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void PlayerRespawn()
     {
+        //Respawns player
         gameManager.instance.playerScript.Respawn();
     }
 
@@ -34,41 +38,88 @@ public class buttonFunctions : MonoBehaviour
 
     public void StartGame()
     {
+        //Loads in main level
         SceneManager.LoadScene("SpaceScene");
-        Time.timeScale = 1;
     }
     public void ReturnToMainMenu()
     {
+        //Loads scene that has the main menu
         SceneManager.LoadScene("Main Menu");
     }
     public void FiringRange()
     {
         SceneManager.LoadScene("FiringRangeScene");
-        Time.timeScale = 1;
     }
 
     public void BackMainMenu()
     {
-        gameManager.instance.settingsMenu.SetActive(false);
-        gameManager.instance.menuCurrentlyOpen = null;
+        //Checks for which menu is open
+        if (gameManager.instance.menuCurrentlyOpen == gameManager.instance.settingsMenu)
+        {
+            //Closes settings menu, makes sure active menu is set to nothing, and saves any settings changes
+            gameManager.instance.menuCurrentlyOpen.SetActive(false);
+            gameManager.instance.menuCurrentlyOpen = null;
+            gameManager.instance.SaveSoundSettings();
+        }
+        else if(gameManager.instance.menuCurrentlyOpen == gameManager.instance.creditsMenu)
+        {
+            //Closes credits and makes sure active menu is set to nothing
+            gameManager.instance.menuCurrentlyOpen.SetActive(false);
+            gameManager.instance.menuCurrentlyOpen = null;
+        }
+
+        //Opens start menu
         gameManager.instance.startMenu.SetActive(true);
-        gameManager.instance.SaveSoundSettings();
+
+        //Sets the highlighted button to the needed button
+        gameManager.instance.buttonToSelect = gameManager.instance.startButton;
+        gameManager.instance.eventSystem.SetSelectedGameObject(gameManager.instance.buttonToSelect);
     }
 
     public void BackInGame()
     {
+        //Closes the settings menu
         gameManager.instance.menuCurrentlyOpen.SetActive(false);
-        gameManager.instance.pauseMenu.SetActive(true);
+
+        //Sets the pause menu as active menu and opens it then saves the settings
+        gameManager.instance.menuCurrentlyOpen = gameManager.instance.pauseMenu;
+        gameManager.instance.menuCurrentlyOpen.SetActive(true);
         gameManager.instance.SaveSoundSettings();
+
+        //Sets the highlighted button to the needed button
+        gameManager.instance.buttonToSelect = gameManager.instance.resumeButton;
+        gameManager.instance.eventSystem.SetSelectedGameObject(gameManager.instance.buttonToSelect);
     }
 
     public void Settings()
     {
+        //Checks if the main menu is open or if the pause menu is open and closes it
         if (gameManager.instance.menuCurrentlyOpen == null) gameManager.instance.startMenu.SetActive(false);
         else gameManager.instance.menuCurrentlyOpen.SetActive(false);
 
-        gameManager.instance.settingsMenu.SetActive(true);
+        //Sets settings menu as active menu and opens it
         gameManager.instance.menuCurrentlyOpen = gameManager.instance.settingsMenu;
+        gameManager.instance.menuCurrentlyOpen.SetActive(true);
+
+        //Sets the highlighted button to the needed button
+        gameManager.instance.buttonToSelect = gameManager.instance.backButtonSettings;
+        gameManager.instance.eventSystem.SetSelectedGameObject(gameManager.instance.buttonToSelect);
+    }
+
+    public void Credits()
+    {
+        //Closes start menu
+        gameManager.instance.startMenu.SetActive(false);
+
+        //Sets credits as active menu and opens it
+        gameManager.instance.menuCurrentlyOpen = gameManager.instance.creditsMenu;
+        gameManager.instance.menuCurrentlyOpen.SetActive(true);
+
+        //Sets the highlighted button to the needed button
+        gameManager.instance.buttonToSelect = gameManager.instance.backButtonCredits;
+        new WaitForSeconds(5);
+        gameManager.instance.buttonToSelect.SetActive(true);
+        gameManager.instance.eventSystem.SetSelectedGameObject(gameManager.instance.buttonToSelect);
     }
 
     public void SetDisplayMode(bool isFullscreen)

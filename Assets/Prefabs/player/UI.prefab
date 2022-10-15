@@ -541,7 +541,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 8400000, guid: e8525dae223e6ed4191e270b95ba2da2, type: 2}
+  m_Texture: {fileID: 8400000, guid: 139738c72a42caa488509d90446079dd, type: 2}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -2814,7 +2814,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &4143467296180450315
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3261,7 +3261,8 @@ MonoBehaviour:
   buttonToSelect: {fileID: 0}
   startButton: {fileID: 0}
   resumeButton: {fileID: 4143467297503363785}
-  backButton: {fileID: 6297549063832021522}
+  backButtonSettings: {fileID: 0}
+  backButtonCredits: {fileID: 0}
   countDownTimer: 5
   HPBar: {fileID: 4143467297711487383}
   countDownDisplay: {fileID: 2138754410}

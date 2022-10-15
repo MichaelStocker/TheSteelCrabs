@@ -391,7 +391,7 @@ MonoBehaviour:
   roamingEnemy: 0
   fireRate: 2
   bullet: {fileID: 4179400897317997961, guid: 096078a988f544e43a9f8cce72772860, type: 3}
-  bulletPos: {fileID: 0}
+  bulletPos: {fileID: 1707551037}
   enemyPrefab: {fileID: 0}
   playerInRange: 0
 --- !u!195 &1314448867809254282

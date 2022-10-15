@@ -57,7 +57,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72769ce47519dd74f8633b358abfadc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 1441578795850467098, guid: d34a21be466c001448a97541c3e96f5e, type: 3}
+  enemy: {fileID: 1441578795850467098, guid: f9e7f365433bd1745ac367777db06603, type: 3}
   maxEnemies: 5
   timer: 1
-  ignoreSpawnerRequirements: 1
+  ignoreSpawnerRequirements: 0

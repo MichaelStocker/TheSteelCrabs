@@ -1565,6 +1565,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 762451146, guid: ba25c31334de1c8439021c0a82808486, type: 3}
+      propertyPath: enemy
+      value: 
+      objectReference: {fileID: 1837742199}
     - target: {fileID: 6079324698857870108, guid: ba25c31334de1c8439021c0a82808486, type: 3}
       propertyPath: m_Name
       value: Robot Kyle
@@ -1705,6 +1709,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1837742199 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1369230784686876487, guid: d8d7ba6c8a330a44b98e613adacf124f, type: 3}
+  m_PrefabInstance: {fileID: 927419862}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1991713756
 PrefabInstance:
   m_ObjectHideFlags: 0

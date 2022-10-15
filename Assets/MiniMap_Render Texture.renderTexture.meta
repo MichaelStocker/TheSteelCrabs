@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Unity Store Downloads/Guns/FS - Assault/Prefab/SynTaxP40_Attachments_OFF.prefab.meta
+guid: 139738c72a42caa488509d90446079dd
+timeCreated: 1518956681
+licenseType: Store
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 100100000
+========
+guid: e8525dae223e6ed4191e270b95ba2da2
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 8400000
+>>>>>>>> 86b9db0dbb38dad364a1df2eb6adf352047c8026:Assets/MiniMap_Render Texture.renderTexture.meta
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

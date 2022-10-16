@@ -14,6 +14,8 @@ public class GunStats : ScriptableObject
     public int currAmmo;
     public float reloTime;
 
+    public Animator gunAnim;
+
     public GameObject model;
     public GameObject sightModel;
     public GameObject silModel;

@@ -82,6 +82,57 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &762451144
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 762451147}
+  - component: {fileID: 762451146}
+  m_Layer: 0
+  m_Name: Sound Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &762451147
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 762451144}
+  m_LocalRotation: {x: -0, y: -0.96482694, z: 0, w: 0.26288602}
+  m_LocalPosition: {x: -7.877122, y: 14.110413, z: 11.684095}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7063122244728807695}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &762451146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 762451144}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de7198139592bc44e9a1841c5364b043, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 6079324698857870108}
+  enemy: {fileID: 1925294353120954358, guid: fa2c899eef833864bad87fcdba70fe07, type: 3}
+  calmDist: 80
+  dangerDist: 30
+  Calm:
+  - {fileID: 8300000, guid: 999f70c2db9bb12429835023c474b255, type: 3}
+  Dramatic:
+  - {fileID: 8300000, guid: 89c8fa5f964c24247aa849ad39d024ff, type: 3}
 --- !u!1 &865302386
 GameObject:
   m_ObjectHideFlags: 0
@@ -1519,6 +1570,7 @@ Transform:
   - {fileID: 5460950016618521711}
   - {fileID: 2425369542309673788}
   - {fileID: 528305294}
+  - {fileID: 762451147}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

@@ -189,7 +189,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1369230784686876482, guid: d8d7ba6c8a330a44b98e613adacf124f, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1369230784686876482, guid: d8d7ba6c8a330a44b98e613adacf124f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -463,7 +463,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: -7.101, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -1505,63 +1505,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d8d7ba6c8a330a44b98e613adacf124f, type: 3}
---- !u!1001 &1783433862
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 6079324698857870108, guid: ba25c31334de1c8439021c0a82808486, type: 3}
-      propertyPath: m_Name
-      value: Robot Kyle
-      objectReference: {fileID: 0}
-    - target: {fileID: 7063122244728807695, guid: ba25c31334de1c8439021c0a82808486, type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7063122244728807695, guid: ba25c31334de1c8439021c0a82808486, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 746.8157
-      objectReference: {fileID: 0}
-    - target: {fileID: 7063122244728807695, guid: ba25c31334de1c8439021c0a82808486, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 292.18
-      objectReference: {fileID: 0}
-    - target: {fileID: 7063122244728807695, guid: ba25c31334de1c8439021c0a82808486, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 773.35944
-      objectReference: {fileID: 0}
-    - target: {fileID: 7063122244728807695, guid: ba25c31334de1c8439021c0a82808486, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.26288602
-      objectReference: {fileID: 0}
-    - target: {fileID: 7063122244728807695, guid: ba25c31334de1c8439021c0a82808486, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7063122244728807695, guid: ba25c31334de1c8439021c0a82808486, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.96482694
-      objectReference: {fileID: 0}
-    - target: {fileID: 7063122244728807695, guid: ba25c31334de1c8439021c0a82808486, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7063122244728807695, guid: ba25c31334de1c8439021c0a82808486, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7063122244728807695, guid: ba25c31334de1c8439021c0a82808486, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 149.517
-      objectReference: {fileID: 0}
-    - target: {fileID: 7063122244728807695, guid: ba25c31334de1c8439021c0a82808486, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: ba25c31334de1c8439021c0a82808486, type: 3}
 --- !u!1001 &1791840347
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1794,6 +1737,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1195318860, guid: 360163492fb75f249aa83d34ee5739e4, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 334892249014945685, guid: 360163492fb75f249aa83d34ee5739e4, type: 3}
       propertyPath: m_Name
       value: Robot Kyle 2.0

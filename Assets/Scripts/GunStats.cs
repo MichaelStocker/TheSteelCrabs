@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 [CreateAssetMenu] 
@@ -14,7 +15,7 @@ public class GunStats : ScriptableObject
     public int currAmmo;
     public float reloTime;
 
-    public Animator gunAnim;
+    [SerializeField] public Animator gunAnim;
 
     public GameObject model;
     public GameObject sightModel;

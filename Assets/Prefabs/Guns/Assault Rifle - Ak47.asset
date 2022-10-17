@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 040a5828834fc8042b076df360dc4791, type: 3}
   m_Name: Assault Rifle - Ak47
   m_EditorClassIdentifier: 
-  shootRate: 0.1
+  shootRate: 0.2
   shootDist: 40
   shootDamage: 2
-  maximAmmo: 30
-  currAmmo: 30
-  reloTime: 1.5
+  maximAmmo: 5
+  currAmmo: 5
+  reloTime: 2
+  gunAnim: {fileID: 0}
   model: {fileID: 5828464838643474811, guid: c3fb52ba9fb505445b808fe2371f57e4, type: 3}
   sightModel: {fileID: 5828464838643474811, guid: 2732280c4e4902e489ccd5e5041fb3e6, type: 3}
   silModel: {fileID: 5828464838643474811, guid: 2732280c4e4902e489ccd5e5041fb3e6, type: 3}

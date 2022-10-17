@@ -170,7 +170,6 @@ public class playerController : MonoBehaviour, IDamageable
                 maxAmmo = gunStat[selectedGun].maximAmmo;
                 currentAmmo = gunStat[selectedGun].currAmmo;
                 reloadTime = gunStat[selectedGun].reloTime;
-                gunAnimation = gunStat[selectedGun].gunAnim;
 
                 gunModel.GetComponent<MeshFilter>().sharedMesh = gunStat[selectedGun].model.GetComponent<MeshFilter>().sharedMesh;
                 gunModelSight.GetComponent<MeshFilter>().sharedMesh = gunStat[selectedGun].sightModel.GetComponent<MeshFilter>().sharedMesh;
@@ -190,7 +189,6 @@ public class playerController : MonoBehaviour, IDamageable
                 maxAmmo = gunStat[selectedGun].maximAmmo;
                 currentAmmo = gunStat[selectedGun].currAmmo;
                 reloadTime = gunStat[selectedGun].reloTime;
-                gunAnimation = gunStat[selectedGun].gunAnim;
 
                 gunModel.GetComponent<MeshFilter>().sharedMesh = gunStat[selectedGun].model.GetComponent<MeshFilter>().sharedMesh;
                 gunModelSight.GetComponent<MeshFilter>().sharedMesh = gunStat[selectedGun].sightModel.GetComponent<MeshFilter>().sharedMesh;
@@ -213,7 +211,6 @@ public class playerController : MonoBehaviour, IDamageable
         maxAmmo = stats.maximAmmo;
         currentAmmo = stats.currAmmo;
         reloadTime = stats.reloTime;
-        gunAnimation = stats.gunAnim;
 
         gunModel.GetComponent<MeshFilter>().sharedMesh = stats.model.GetComponent<MeshFilter>().sharedMesh;
         gunModelSight.GetComponent<MeshFilter>().sharedMesh = stats.sightModel.GetComponent<MeshFilter>().sharedMesh;
@@ -234,6 +231,7 @@ public class playerController : MonoBehaviour, IDamageable
             isShooting = true;
             currentAmmo--;
             aud.PlayOneShot(gunStat[selectedGun].sound, gunShootSoundVol);
+            gunAnimation.SetBool("Shooting", true);
             //Debug.Log("Log Shot");
 
             RaycastHit hit;
@@ -248,6 +246,7 @@ public class playerController : MonoBehaviour, IDamageable
             yield return new WaitForSeconds(fireRate);
             isShooting = false;
         }
+                gunAnimation.SetBool("Shooting", false);
     }
 
     IEnumerator DamageFlash()

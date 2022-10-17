@@ -10,6 +10,7 @@ Brandon Vargas
 Michael Stocker
 !Player
 Cheyanne Wickersheim
+Player Model - https://assetstore.unity.com/packages/3d/characters/robots/space-robot-kyle-4696
 !Enemies
 Steven Fabian
 Models- https://assetstore.unity.com/packages/3d/characters/humanoids/sci-fi/futuristic-soldier-scifi-character-202085
@@ -18,6 +19,8 @@ Enemy Sniper - https://assetstore.unity.com/packages/3d/props/weapons/mac-sci-fi
 Enemy Assault - https://assetstore.unity.com/packages/3d/props/guns/fps-syntax-p40-model-textures-111831
 !Sounds
 Cheyanne Wickersheim
+Main Menu Music - https://www.freesfx.co.uk/Category/Spacecraft/8
+Button Click Sound - https://assetstore.unity.com/packages/audio/sound-fx/free-casual-game-sfx-pack-54116
 !Weapons
 Steven Fabian
 Player Weapons - https://assetstore.unity.com/packages/3d/props/guns/guns-pack-low-poly-guns-collection-192553

@@ -30,6 +30,7 @@ public class playerController : MonoBehaviour, IDamageable
     [SerializeField] GameObject gunModel;
     [SerializeField] GameObject gunModelSight;
     [SerializeField] GameObject gunModelSil;
+    [SerializeField] Animator gunAnimation;
 
     [Header("----- Audio -----")]
     [SerializeField] AudioSource aud;
@@ -93,7 +94,10 @@ public class playerController : MonoBehaviour, IDamageable
             isReloading = true;
             aud.PlayOneShot(reloadSound);
             Debug.Log("Reloading");
+            gunAnimation.SetBool("Reloading", true);
             yield return new WaitForSeconds(reloadTime);
+            gunAnimation.SetBool("Reloading", false);
+
             currentAmmo = maxAmmo;
             isReloading = false;
         }
@@ -227,6 +231,7 @@ public class playerController : MonoBehaviour, IDamageable
             isShooting = true;
             currentAmmo--;
             aud.PlayOneShot(gunStat[selectedGun].sound, gunShootSoundVol);
+            gunAnimation.SetBool("Shooting", true);
             //Debug.Log("Log Shot");
 
             RaycastHit hit;
@@ -236,12 +241,12 @@ public class playerController : MonoBehaviour, IDamageable
                     hit.collider.GetComponent<IDamageable>().TakeDamage(shootDamage);
 
                 Instantiate(gunStat[selectedGun].hitEffect, hit.point, transform.rotation);
-                Instantiate(gunStat[selectedGun].hitEffect, gunModel.transform.position, transform.rotation);
             }
 
             yield return new WaitForSeconds(fireRate);
             isShooting = false;
         }
+                gunAnimation.SetBool("Shooting", false);
     }
 
     IEnumerator DamageFlash()

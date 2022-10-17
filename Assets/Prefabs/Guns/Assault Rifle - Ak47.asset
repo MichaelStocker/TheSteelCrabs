@@ -15,8 +15,8 @@ MonoBehaviour:
   shootRate: 0.2
   shootDist: 40
   shootDamage: 2
-  maximAmmo: 5
-  currAmmo: 5
+  maximAmmo: 20
+  currAmmo: 20
   reloTime: 2
   gunAnim: {fileID: 0}
   model: {fileID: 5828464838643474811, guid: c3fb52ba9fb505445b808fe2371f57e4, type: 3}

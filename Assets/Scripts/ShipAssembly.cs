@@ -15,9 +15,7 @@ public class ShipAssembly : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        shipEngine.SetActive(false);
-        shipHull.SetActive(false);
-        shipWings.SetActive(false);
+        
     }
 
     // Update is called once per frame
@@ -29,19 +27,16 @@ public class ShipAssembly : MonoBehaviour
     {
         if (objectPickup.name == "Ship Wings Pickup")
         {
-            shipWings.SetActive(true);
             gameManager.instance.wingsCollected = true;
             gameManager.instance.AdjustPartsList(gameManager.instance.wingsOnList);
         }
         else if (objectPickup.name == "Ship Hull Pickup")
         {
-            shipHull.SetActive(true);
             gameManager.instance.hullCollected = true;
             gameManager.instance.AdjustPartsList(gameManager.instance.hullOnList);
         }
         else if (objectPickup.name == "Ship Engines Pickup")
         {
-            shipEngine.SetActive(true);
             gameManager.instance.engineCollected = true;
             gameManager.instance.AdjustPartsList(gameManager.instance.enginesOnList);
         }

@@ -5,6 +5,8 @@ using UnityEditor;
 using System.IO;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
+using UnityEngine.Rendering.PostProcessing;
 
 public class gameManager : MonoBehaviour
 {
@@ -36,30 +38,42 @@ public class gameManager : MonoBehaviour
 
     [Header("----- UI -----")]
     [Range(3, 10)] [SerializeField] int countDownTimer;
+    [SerializeField] public TextMeshPro triggerAssembly;
     public Image HPBar;
     public Text countDownDisplay;
     public TextMeshProUGUI hullOnList;
     public TextMeshProUGUI wingsOnList;
     public TextMeshProUGUI enginesOnList;
 
+    [Header("----- Settings -----")]
+    public int firstPlayInt;
+
+    private static readonly string FirstPlay = "FirstPlay";
+    private static readonly string MainVolumePref = "MainVolumePref";
+    private static readonly string SFXPref = "SFXPref";
+    private static readonly string MusicVolumePref = "MusicVolumePref";
+    public Slider mainVolumeSlider, SFXSlider, musicVolumeSlider;
+    public float mainVolumeFloat, SFXFloat, musicVolimeFloat;
+
+    private static readonly string SensHoriPref = "SensHoriPref";
+    private static readonly string SensVertPref = "SensVertPref";
+    public Slider sensHoriSlider, sensVertSlider;
+
+    private static readonly string BrightnessPref = "BrightnessPref";
+    public Slider brightnessSlider;
+    public float brightnessVolumeFloat;
+    public PostProcessProfile brightness;
+    public PostProcessLayer layer;
+    public AutoExposure exposure;
 
     [Header("----- Audio -----")]
     [SerializeField] public AudioSource MainVolume;
     [SerializeField] public AudioSource MusicVolume;
     [SerializeField] public AudioSource SFXVolume;
 
-    [SerializeField] AudioClip[] playerDamageSFX;
-    [SerializeField] AudioClip[] playerJumpSFX;
-    [SerializeField] AudioClip[] playerFootStepSFX;
+    public AudioClip buttonClicked;
 
-    private static readonly string FirstPlay = "FirstPlay";
-    private static readonly string MainVolumePref = "MainVolumePref";
-    private static readonly string SFXPref = "SFXPref";
-    private static readonly string MusicVolumePref = "MusicVolumePref";
-    public int firstPlayInt;
-    public Slider mainVolumeSlider, SFXSlider, musicVolumeSlider;
-    public float mainVolumeFloat, SFXFloat, musicVolimeFloat;
-
+    [Header("----- Credits -----")]
     List<string> headers = new List<string>();
     List<List<string>> titles = new List<List<string>>();
     List<GameObject> creditsTexts = new List<GameObject>();
@@ -71,12 +85,12 @@ public class gameManager : MonoBehaviour
     public float defaultFOV;
 
     [Header("----- Misc -----")]
-    public bool playerCanEscape = false;
     public int enemyCount;
     public int waveCount;
     public bool isCounting;
     public bool isPaused;
     public bool isFiringRange;
+    public bool canTriggerWin;
     float timeScaleOrig;
 
     [Header("----- Parts Collected -----")]
@@ -88,6 +102,11 @@ public class gameManager : MonoBehaviour
     void Awake()
     {
         instance = this;
+
+        canTriggerWin = false;
+
+        //Game Music
+        MusicVolume.Play();
 
         //Sets player's object, controller, spawn pos and sensitivity
         player = GameObject.FindGameObjectWithTag("Player");
@@ -108,8 +127,9 @@ public class gameManager : MonoBehaviour
         //Sets the time scale to one for any time we are going into a different scene
         Time.timeScale = 1;
 
-        //Sounds Settings
+        //Settings
         firstPlayInt = PlayerPrefs.GetInt(FirstPlay);
+        brightness.TryGetSettings(out exposure);
 
         //If this is the users first time playing it sets the default settings
         if (firstPlayInt == 0)
@@ -117,23 +137,38 @@ public class gameManager : MonoBehaviour
             mainVolumeFloat = .8f;
             SFXFloat = .5f;
             musicVolimeFloat = .3f;
+            brightnessVolumeFloat = 1f;
+            sensHor = 600;
+            sensVert = 600;
             mainVolumeSlider.value = mainVolumeFloat;
             SFXSlider.value = SFXFloat;
             musicVolumeSlider.value = musicVolimeFloat;
+            brightnessSlider.value = brightnessVolumeFloat;
+            sensHoriSlider.value = sensHor;
+            sensVertSlider.value = sensVert;
             PlayerPrefs.SetFloat(MainVolumePref, mainVolumeFloat);
             PlayerPrefs.SetFloat(SFXPref, SFXFloat);
             PlayerPrefs.SetFloat(MusicVolumePref, musicVolimeFloat);
+            PlayerPrefs.SetFloat(BrightnessPref, brightnessVolumeFloat);
+            PlayerPrefs.SetFloat(SensHoriPref, sensHor);
+            PlayerPrefs.SetFloat(SensVertPref, sensVert);
             PlayerPrefs.SetInt(FirstPlay, -1);
         }
-        //If not it sets it to the settings they last left them on
         else
         {
-            mainVolumeSlider.value = mainVolumeFloat;
-            SFXSlider.value = mainVolumeFloat;
-            musicVolumeSlider.value = musicVolimeFloat;
+            //If not it sets it to the settings they last left them on
             mainVolumeFloat = PlayerPrefs.GetFloat(MainVolumePref);
             SFXFloat = PlayerPrefs.GetFloat(SFXPref);
             musicVolimeFloat = PlayerPrefs.GetFloat(MusicVolumePref);
+            brightnessVolumeFloat = PlayerPrefs.GetFloat(BrightnessPref);
+            sensHor = (int)PlayerPrefs.GetFloat(SensHoriPref);
+            sensVert = (int)PlayerPrefs.GetFloat(SensVertPref);
+            mainVolumeSlider.value = mainVolumeFloat;
+            SFXSlider.value = mainVolumeFloat;
+            musicVolumeSlider.value = musicVolimeFloat;
+            brightnessSlider.value = brightnessVolumeFloat;
+            sensHoriSlider.value = sensHor;
+            sensVertSlider.value = sensVert;
         }
 
         ContinueSettings();
@@ -191,16 +226,25 @@ public class gameManager : MonoBehaviour
         }
 
         //Check for win game condition
-        if (wingsCollected && hullCollected && engineCollected) StartCoroutine(WinGame());
+        if(hullCollected &&wingsCollected && engineCollected)
+        {
+            canTriggerWin = true;
+        }
+
+        //Floating text always faces player
+        if(triggerAssembly != null) triggerAssembly.transform.LookAt(Camera.main.transform);
     }
 
-    #region Sounds
+    #region Settings
 
-    public void SaveSoundSettings()
+    public void SaveSettings()
     {
         PlayerPrefs.SetFloat(MainVolumePref, mainVolumeSlider.value);
         PlayerPrefs.SetFloat(SFXPref, SFXSlider.value);
         PlayerPrefs.SetFloat(MusicVolumePref, musicVolumeSlider.value);
+        PlayerPrefs.SetFloat(BrightnessPref, brightnessSlider.value);
+        PlayerPrefs.SetFloat(SensHoriPref, sensHoriSlider.value);
+        PlayerPrefs.SetFloat(SensVertPref, sensVertSlider.value);
     }
 
     void ContinueSettings()
@@ -208,15 +252,18 @@ public class gameManager : MonoBehaviour
         mainVolumeFloat = PlayerPrefs.GetFloat(MainVolumePref);
         SFXFloat = PlayerPrefs.GetFloat(MainVolumePref);
         musicVolimeFloat = PlayerPrefs.GetFloat(MainVolumePref);
-
+        brightnessVolumeFloat = PlayerPrefs.GetFloat(BrightnessPref);
+        sensHor = (int)PlayerPrefs.GetFloat(SensHoriPref);
+        sensVert = (int)PlayerPrefs.GetFloat(SensVertPref);
         MainVolume.volume = mainVolumeFloat;
         SFXVolume.volume = SFXFloat;
         MusicVolume.volume = musicVolimeFloat;
+        exposure.keyValue.value = brightnessVolumeFloat;
     }
 
     void OnApplicationFocus(bool inFocus)
     {
-        if (!inFocus) SaveSoundSettings();
+        if (!inFocus) SaveSettings();
     }
 
     #endregion
@@ -313,6 +360,6 @@ public class gameManager : MonoBehaviour
         float angle = Mathf.Abs((defaultFOV/zoomMult)-defaultFOV);
         Camera.main.fieldOfView = Mathf.MoveTowards(Camera.main.fieldOfView, target, angle * Time.deltaTime);
     }
-
+    
 }
 

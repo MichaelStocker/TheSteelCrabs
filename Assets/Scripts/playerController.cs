@@ -24,7 +24,6 @@ public class playerController : MonoBehaviour, IDamageable
     [SerializeField] int maxAmmo;
     [SerializeField] int currentAmmo;
     [Range(0, 3)] [SerializeField] float reloadTime;
-    [SerializeField] AudioClip reloadSound;
 
     [SerializeField] List<GunStats> gunStat = new List<GunStats>();
     [SerializeField] GameObject gunModel;
@@ -33,17 +32,15 @@ public class playerController : MonoBehaviour, IDamageable
     [SerializeField] Animator gunAnimation;
 
     [Header("----- Audio -----")]
-    [SerializeField] AudioSource aud;
-    [SerializeField] AudioClip[] playerDamage;
-    [Range(0, 1)] [SerializeField] float playerDamageVol;
+    [SerializeField] AudioClip[] playerDamageSFX;
+    [SerializeField] AudioClip[] playerJumpSFX;
+    [SerializeField] AudioClip[] playerFootStepSFX;
+    [SerializeField] AudioClip reloadSFX;
 
-    [SerializeField] AudioClip[] playerJumpSound;
-    [Range(0, 1)] [SerializeField] float playerJumpSoundVol;
-
-    [SerializeField] AudioClip[] playerFootStepSound;
-    [Range(0, 1)] [SerializeField] float playerFootSoundVol;
-
-    [Range(0, 1)] [SerializeField] float gunShootSoundVol;
+    //[Range(0, 1)] [SerializeField] float playerDamageVol;
+    //[Range(0, 1)] [SerializeField] float playerJumpSoundVol;
+    //[Range(0, 1)] [SerializeField] float playerFootSoundVol;
+    //[Range(0, 1)] [SerializeField] float gunShootSoundVol;
 
     int selectedGun;
     public CharacterController controller2;
@@ -92,8 +89,8 @@ public class playerController : MonoBehaviour, IDamageable
         if (currentAmmo <= 0)
         {
             isReloading = true;
-            aud.PlayOneShot(reloadSound);
-            Debug.Log("Reloading");
+            gameManager.instance.SFXVolume.PlayOneShot(reloadSFX);
+            //Debug.Log("Reloading");
             gunAnimation.SetBool("Reloading", true);
             yield return new WaitForSeconds(reloadTime);
             gunAnimation.SetBool("Reloading", false);
@@ -119,7 +116,7 @@ public class playerController : MonoBehaviour, IDamageable
         {
             playerVelocity.y = jumpHeight;
             jumpCounter++;
-            aud.PlayOneShot(playerJumpSound[Random.Range(0, playerJumpSound.Length)], playerJumpSoundVol);
+            gameManager.instance.SFXVolume.PlayOneShot(playerJumpSFX[Random.Range(0, playerJumpSFX.Length)]); //May need to put a comma between ] and ) and "gameManager.instance.SFXVolume.volume
         }
 
         playerVelocity.y -= gravityValue * Time.deltaTime;
@@ -145,7 +142,7 @@ public class playerController : MonoBehaviour, IDamageable
         if (!playingFootSteps && controller.isGrounded && move.normalized.magnitude > 0.3f)
         {
             playingFootSteps = true;
-            aud.PlayOneShot(playerFootStepSound[Random.Range(0, playerFootStepSound.Length)], playerFootSoundVol);
+            gameManager.instance.SFXVolume.PlayOneShot(playerFootStepSFX[Random.Range(0, playerFootStepSFX.Length)]); //Line 119
 
             if (isSprinting)
                 yield return new WaitForSeconds(0.3f);
@@ -230,7 +227,7 @@ public class playerController : MonoBehaviour, IDamageable
         {
             isShooting = true;
             currentAmmo--;
-            aud.PlayOneShot(gunStat[selectedGun].sound, gunShootSoundVol);
+            gameManager.instance.SFXVolume.PlayOneShot(gunStat[selectedGun].sound); //Line 119
             gunAnimation.SetBool("Shooting", true);
             //Debug.Log("Log Shot");
 
@@ -276,7 +273,7 @@ public class playerController : MonoBehaviour, IDamageable
     {
         playerHealth -= dmg;
         UpdatePlayerHP();
-        aud.PlayOneShot(playerDamage[Random.Range(0, playerDamage.Length)], playerDamageVol);
+        gameManager.instance.SFXVolume.PlayOneShot(playerDamageSFX[Random.Range(0, playerDamageSFX.Length)]); //Line 119
 
         StartCoroutine(DamageFlash());
 

@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 764419472962252887}
   - component: {fileID: 4410177288394604530}
   - component: {fileID: 1932307750433426232}
+  - component: {fileID: 462535697}
   m_Layer: 10
   m_Name: AK-47 Gun Position
   m_TagString: Untagged
@@ -70,7 +71,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 130626213868612333}
-  m_Mesh: {fileID: -50397647144078270, guid: aace8ffc008b51b42977abe257581f94, type: 3}
+  m_Mesh: {fileID: 0}
 --- !u!23 &1932307750433426232
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -112,6 +113,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &462535697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 130626213868612333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 313b564f01d073a499b68f77e089b94c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gunAnimation: {fileID: 2090667077}
 --- !u!1 &334892249014945685
 GameObject:
   m_ObjectHideFlags: 0
@@ -180,7 +194,7 @@ MonoBehaviour:
   gunModel: {fileID: 130626213868612333}
   gunModelSight: {fileID: 5828464838643474811, guid: 2732280c4e4902e489ccd5e5041fb3e6, type: 3}
   gunModelSil: {fileID: 5828464838643474811, guid: 2732280c4e4902e489ccd5e5041fb3e6, type: 3}
-  gunAnimation: {fileID: 0}
+  gunAnimation: {fileID: 2090667077}
   aud: {fileID: 2655770425494778099}
   playerDamage:
   - {fileID: 8300000, guid: 5be49344ff4d2384c8be4c9bf237d4fc, type: 3}
@@ -406,14 +420,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 730687812702596009}
-  m_LocalRotation: {x: 0.42036253, y: 0.37180415, z: -0.08352769, w: 0.8234563}
+  m_LocalRotation: {x: 0.12748933, y: 0.3424662, z: -0.16796057, w: 0.9155614}
   m_LocalPosition: {x: -0.046887316, y: -0.004865311, z: 0.046988335}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 9131147871663357527}
   m_Father: {fileID: 7712004468785321070}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -13.59}
 --- !u!1 &810790214585741652
 GameObject:
   m_ObjectHideFlags: 0

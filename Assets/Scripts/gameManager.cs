@@ -5,6 +5,7 @@ using UnityEditor;
 using System.IO;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class gameManager : MonoBehaviour
 {
@@ -36,12 +37,13 @@ public class gameManager : MonoBehaviour
 
     [Header("----- UI -----")]
     [Range(3, 10)] [SerializeField] int countDownTimer;
+    [SerializeField] public TextMeshPro triggerAssembly;
     public Image HPBar;
     public Text countDownDisplay;
     public TextMeshProUGUI hullOnList;
     public TextMeshProUGUI wingsOnList;
     public TextMeshProUGUI enginesOnList;
-
+    
 
     [Header("----- Audio -----")]
     [SerializeField] public AudioSource MainVolume;
@@ -71,12 +73,12 @@ public class gameManager : MonoBehaviour
     public float defaultFOV;
 
     [Header("----- Misc -----")]
-    public bool playerCanEscape = false;
     public int enemyCount;
     public int waveCount;
     public bool isCounting;
     public bool isPaused;
     public bool isFiringRange;
+    public bool canTriggerWin;
     float timeScaleOrig;
 
     [Header("----- Parts Collected -----")]
@@ -88,6 +90,8 @@ public class gameManager : MonoBehaviour
     void Awake()
     {
         instance = this;
+
+        canTriggerWin = false;
 
         //Sets player's object, controller, spawn pos and sensitivity
         player = GameObject.FindGameObjectWithTag("Player");
@@ -125,9 +129,9 @@ public class gameManager : MonoBehaviour
             PlayerPrefs.SetFloat(MusicVolumePref, musicVolimeFloat);
             PlayerPrefs.SetInt(FirstPlay, -1);
         }
-        //If not it sets it to the settings they last left them on
         else
         {
+            //If not it sets it to the settings they last left them on
             mainVolumeSlider.value = mainVolumeFloat;
             SFXSlider.value = mainVolumeFloat;
             musicVolumeSlider.value = musicVolimeFloat;
@@ -191,7 +195,13 @@ public class gameManager : MonoBehaviour
         }
 
         //Check for win game condition
-        if (wingsCollected && hullCollected && engineCollected) StartCoroutine(WinGame());
+        if(hullCollected &&wingsCollected && engineCollected)
+        {
+            canTriggerWin = true;
+        }
+
+        //Floating text always faces player
+        triggerAssembly.transform.LookAt(Camera.main.transform);
     }
 
     #region Sounds
@@ -313,6 +323,6 @@ public class gameManager : MonoBehaviour
         float angle = Mathf.Abs((defaultFOV/zoomMult)-defaultFOV);
         Camera.main.fieldOfView = Mathf.MoveTowards(Camera.main.fieldOfView, target, angle * Time.deltaTime);
     }
-
+    
 }
 

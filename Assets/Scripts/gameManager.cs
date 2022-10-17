@@ -73,11 +73,6 @@ public class gameManager : MonoBehaviour
 
     public AudioClip buttonClicked;
 
-    [Header("----- Credits -----")]
-    List<string> headers = new List<string>();
-    List<List<string>> titles = new List<List<string>>();
-    List<GameObject> creditsTexts = new List<GameObject>();
-
     [Header("----- Scope -----")]
     public GameObject scopeMask;
     public GameObject basicReticle;

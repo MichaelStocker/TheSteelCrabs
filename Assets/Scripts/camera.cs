@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class camera : MonoBehaviour
 {
-    [SerializeField] int sensHor;
-    [SerializeField] int sensVert;
+    [SerializeField] int sensHor = 600;
+    [SerializeField] int sensVert = 600;
 
     [SerializeField] int lockVertMin;
     [SerializeField] int lockVertMax;

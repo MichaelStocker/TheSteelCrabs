@@ -673,10 +673,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1863446940, guid: ba48524693a5ac14eb6a279aa0e8c441, type: 3}
-      propertyPath: m_Texture
-      value: 
-      objectReference: {fileID: 8400000, guid: 139738c72a42caa488509d90446079dd, type: 2}
     - target: {fileID: 4143467296180450315, guid: ba48524693a5ac14eb6a279aa0e8c441, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -764,10 +760,6 @@ PrefabInstance:
     - target: {fileID: 4143467296180450319, guid: ba48524693a5ac14eb6a279aa0e8c441, type: 3}
       propertyPath: m_Name
       value: UI
-      objectReference: {fileID: 0}
-    - target: {fileID: 4143467296180450319, guid: ba48524693a5ac14eb6a279aa0e8c441, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4143467296359197638, guid: ba48524693a5ac14eb6a279aa0e8c441, type: 3}
       propertyPath: triggerAssembly

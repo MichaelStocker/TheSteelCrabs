@@ -777,10 +777,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI
       objectReference: {fileID: 0}
-    - target: {fileID: 4143467296180450319, guid: ba48524693a5ac14eb6a279aa0e8c441, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4143467296359197638, guid: ba48524693a5ac14eb6a279aa0e8c441, type: 3}
       propertyPath: triggerAssembly
       value: 

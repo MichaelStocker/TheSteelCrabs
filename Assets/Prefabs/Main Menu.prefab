@@ -2971,7 +2971,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5247575658686037216}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -3650,7 +3650,7 @@ MonoBehaviour:
   sensVertSlider: {fileID: 8384755152530144884}
   brightnessSlider: {fileID: 2601371345866955946}
   brightnessVolumeFloat: 0
-  brightness: {fileID: 11400000, guid: ded37d31d4e120a4f95fb3172b56365c, type: 2}
+  brightness: {fileID: 11400000, guid: ef4ee764d5489424f91c48b176e52e2b, type: 2}
   layer: {fileID: 5932506323465716524}
   exposure: {fileID: 0}
   MainVolume: {fileID: 556903621}
@@ -3970,7 +3970,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sharedProfile: {fileID: 11400000, guid: ded37d31d4e120a4f95fb3172b56365c, type: 2}
+  sharedProfile: {fileID: 11400000, guid: ef4ee764d5489424f91c48b176e52e2b, type: 2}
   isGlobal: 1
   blendDistance: 0
   weight: 1

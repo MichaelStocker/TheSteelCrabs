@@ -23,7 +23,7 @@ public class creditsManager : MonoBehaviour
     List<List<string>> titles = new List<List<string>>();
     List<GameObject> creditsTexts = new List<GameObject>();
 
-    // Start is cal led before the first frame update
+    // Start is called before the first frame update
     void Start()
     {
         Vector3 lastPosition = new Vector3(Screen.width * 0.5f, 0, 0);

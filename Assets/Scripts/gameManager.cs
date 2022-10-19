@@ -133,6 +133,7 @@ public class gameManager : MonoBehaviour
             SFXFloat = .5f;
             musicVolimeFloat = .3f;
             brightnessVolumeFloat = 1f;
+            exposure.keyValue.value = 1f;
             sensHor = 600;
             sensVert = 600;
             mainVolumeSlider.value = mainVolumeFloat;
@@ -173,37 +174,26 @@ public class gameManager : MonoBehaviour
     void Update()
     {
         //Check for escape key to pause game
-        if (Input.GetButtonDown("Cancel") && menuCurrentlyOpen == null)
+        if (Input.GetButtonDown("Cancel") && menuCurrentlyOpen != playerDeadMenu && menuCurrentlyOpen != winMenu && menuCurrentlyOpen != settingsMenu)
         {
-            //Bug fix to getting settings menu stuck
-            if(isPaused && menuCurrentlyOpen == settingsMenu)
-            {
-                settingsMenu.SetActive(false);
-                menuCurrentlyOpen = pauseMenu;
-                menuCurrentlyOpen.SetActive(true);
-            }
-            //Pauses game or unpauses
-            else
-            {
-                scopeMask.SetActive(false);
-                isPaused = !isPaused;
-                menuCurrentlyOpen = pauseMenu;
-                menuCurrentlyOpen.SetActive(isPaused);
+            scopeMask.SetActive(false);
+            isPaused = !isPaused;
+            menuCurrentlyOpen = pauseMenu;
+            menuCurrentlyOpen.SetActive(isPaused);
 
-                if (isPaused)
-                {
-                    CursorLockPause();
+            if (isPaused)
+            {
+                CursorLockPause();
 
-                    //Sets the highlighted button to the needed button
-                    buttonToSelect = resumeButton;
-                    eventSystem.SetSelectedGameObject(buttonToSelect);
-                }
-                else CursorUnlockUnpause();
+                //Sets the highlighted button to the needed button
+                buttonToSelect = resumeButton;
+                eventSystem.SetSelectedGameObject(buttonToSelect);
             }
+            else CursorUnlockUnpause();
         }
 
         //Makes sure game isnt paused
-        if (!isPaused)
+        if (!isPaused && SceneManager.GetActiveScene().name != "Main Menu")
         {
             //Does a zoom effect
             if (Input.GetMouseButton(1))

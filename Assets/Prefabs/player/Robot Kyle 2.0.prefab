@@ -282,7 +282,7 @@ GameObject:
   - component: {fileID: 4410177288394604530}
   - component: {fileID: 1932307750433426232}
   - component: {fileID: 462535697}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: AK-47 Gun Position
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1385,7 +1385,7 @@ GameObject:
   - component: {fileID: 5835503083719039695}
   - component: {fileID: 5835503083719039681}
   - component: {fileID: 5835503083719039694}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: WeaponClipCamera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1748,7 +1748,7 @@ GameObject:
   - component: {fileID: 1659431996464902746}
   - component: {fileID: 9107996910232162459}
   - component: {fileID: 2090667077}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: Gun Holder
   m_TagString: Untagged
   m_Icon: {fileID: 0}

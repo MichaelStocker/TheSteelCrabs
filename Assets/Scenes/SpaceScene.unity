@@ -1737,10 +1737,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1195318860, guid: 360163492fb75f249aa83d34ee5739e4, type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 334892249014945685, guid: 360163492fb75f249aa83d34ee5739e4, type: 3}
       propertyPath: m_Name
       value: Robot Kyle 2.0

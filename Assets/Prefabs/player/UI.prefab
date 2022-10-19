@@ -3307,7 +3307,7 @@ MonoBehaviour:
   sensVertSlider: {fileID: 2675772254545668393}
   brightnessSlider: {fileID: 2237784068797072058}
   brightnessVolumeFloat: 0
-  brightness: {fileID: 11400000, guid: 1971cc6380c53664cb023e85f3fe06a7, type: 2}
+  brightness: {fileID: 11400000, guid: 74953566bc6373947a2e2c2d5a4151c2, type: 2}
   layer: {fileID: 0}
   exposure: {fileID: 0}
   MainVolume: {fileID: 1480953283}
@@ -3627,7 +3627,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sharedProfile: {fileID: 11400000, guid: 1971cc6380c53664cb023e85f3fe06a7, type: 2}
+  sharedProfile: {fileID: 11400000, guid: 74953566bc6373947a2e2c2d5a4151c2, type: 2}
   isGlobal: 1
   blendDistance: 0
   weight: 1

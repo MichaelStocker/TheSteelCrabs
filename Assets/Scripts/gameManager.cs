@@ -311,33 +311,39 @@ public class gameManager : MonoBehaviour
 
     public IEnumerator CountDownStart()
     {
-        //Pauses game & turns on text
-        Time.timeScale = 0;
-        countDownDisplay.gameObject.SetActive(true);
+        int timesUsed = 0;
 
-        while (countDownTimer != 0)
+        if (timesUsed == 0)
         {
-            //Sets text to int's value
-            countDownDisplay.text = countDownTimer.ToString();
+            //Pauses game & turns on text
+            Time.timeScale = 0;
+            countDownDisplay.gameObject.SetActive(true);
 
-            //Waits a second
-            yield return new WaitForSecondsRealtime(1f);
+            while (countDownTimer != 0)
+            {
+                //Sets text to int's value
+                countDownDisplay.text = countDownTimer.ToString();
 
-            //Decrement the int
-            countDownTimer--;
+                //Waits a second
+                yield return new WaitForSecondsRealtime(1f);
+
+                //Decrement the int
+                countDownTimer--;
+            }
+
+            //Resumes game & gives back player functionality
+            Time.timeScale = 1;
+
+            //Lets player know they can move now
+            countDownDisplay.text = "Go!!!";
+
+            //Disables the text getting start off the screen
+            yield return new WaitForSeconds(1f);
+            countDownDisplay.text = " ";
+            countDownDisplay.gameObject.SetActive(false);
+            isCounting = false;
+            timesUsed++;
         }
-
-        //Resumes game & gives back player functionality
-        Time.timeScale = 1;
-
-        //Lets player know they can move now
-        countDownDisplay.text = "Go!!!";
-
-        //Disables the text getting start off the screen
-        yield return new WaitForSeconds(1f);
-        countDownDisplay.gameObject.SetActive(false);
-        countDownDisplay.text = "";
-        isCounting = false;
     }
 
     void ZoomCamera(float target)

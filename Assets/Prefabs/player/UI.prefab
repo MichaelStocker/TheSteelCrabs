@@ -3313,7 +3313,7 @@ MonoBehaviour:
   MainVolume: {fileID: 1480953283}
   MusicVolume: {fileID: 1480953282}
   SFXVolume: {fileID: 1480953281}
-  buttonClicked: {fileID: 0}
+  buttonClicked: {fileID: 8300000, guid: 32d4b1811dda14a6cb9e059ee8ad17d2, type: 3}
   scopeMask: {fileID: 1406328533921949170}
   basicReticle: {fileID: 4143467296546910102}
   zoomMult: 2
@@ -3433,7 +3433,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 4e0c8d84082050644a917c2d03fa0ca1, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 89c8fa5f964c24247aa849ad39d024ff, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -4596,7 +4596,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Quit
+  m_Text: Main Menu
 --- !u!1 &4143467296974460919
 GameObject:
   m_ObjectHideFlags: 0
@@ -4690,7 +4690,7 @@ GameObject:
   - component: {fileID: 4143467297019431995}
   - component: {fileID: 8019855655804228903}
   m_Layer: 5
-  m_Name: Quit
+  m_Name: Return To Menu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4800,7 +4800,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 8019855655804228903}
         m_TargetAssemblyTypeName: buttonFunctions, Assembly-CSharp
-        m_MethodName: Quit
+        m_MethodName: ReturnToMainMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

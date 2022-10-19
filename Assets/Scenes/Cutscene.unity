@@ -26073,6 +26073,14 @@ PrefabInstance:
       propertyPath: m_Text
       value: Return to Main Menu
       objectReference: {fileID: 0}
+    - target: {fileID: 4143467297357390955, guid: ba48524693a5ac14eb6a279aa0e8c441, type: 3}
+      propertyPath: m_FontData.m_MinSize
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4143467297357390955, guid: ba48524693a5ac14eb6a279aa0e8c441, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 4143467297464002225, guid: ba48524693a5ac14eb6a279aa0e8c441, type: 3}
       propertyPath: m_IsActive
       value: 0

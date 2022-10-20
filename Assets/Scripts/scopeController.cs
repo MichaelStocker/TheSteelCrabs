@@ -16,11 +16,11 @@ public class scopeController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        ScopeOverlayToggle(isAiming);
+        //ScopeOverlayToggle(isAiming);
     }
     void ScopeOverlayToggle(bool temp)
     {
-        if (!isAiming && Input.GetButton("Aim"))
+        if (gameManager.instance.playerScript.gunStat.Count > 0 && !isAiming && Input.GetButton("Aim"))
         {
             isAiming = true;
             scopeMask.SetActive(isAiming);

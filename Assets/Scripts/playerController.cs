@@ -25,7 +25,7 @@ public class playerController : MonoBehaviour, IDamageable
     [SerializeField] int currentAmmo;
     [Range(0, 3)] [SerializeField] float reloadTime;
 
-    [SerializeField] List<GunStats> gunStat = new List<GunStats>();
+    [SerializeField] public List<GunStats> gunStat = new List<GunStats>();
     [SerializeField] GameObject gunModel;
     [SerializeField] GameObject gunModelSight;
     [SerializeField] GameObject gunModelSil;
@@ -97,6 +97,15 @@ public class playerController : MonoBehaviour, IDamageable
 
             currentAmmo = maxAmmo;
             isReloading = false;
+        }
+    }
+    void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        if (hit.gameObject.GetComponent<enemyAI>())
+        {
+            Debug.Log("!");
+            float pushPower = 0.5f;
+            gameManager.instance.player.transform.position = new Vector3 (gameManager.instance.player.transform.position.x +pushPower, gameManager.instance.player.transform.position.y, gameManager.instance.player.transform.position.z + pushPower);
         }
     }
 

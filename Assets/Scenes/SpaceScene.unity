@@ -2037,18 +2037,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 715105652, guid: 360163492fb75f249aa83d34ee5739e4, type: 3}
-      propertyPath: m_Constraints
-      value: 124
-      objectReference: {fileID: 0}
-    - target: {fileID: 1507753458, guid: 360163492fb75f249aa83d34ee5739e4, type: 3}
-      propertyPath: m_BackGroundColor.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1507753458, guid: 360163492fb75f249aa83d34ee5739e4, type: 3}
-      propertyPath: m_CullingMask.m_Bits
-      value: 4294967295
-      objectReference: {fileID: 0}
     - target: {fileID: 334892249014945685, guid: 360163492fb75f249aa83d34ee5739e4, type: 3}
       propertyPath: m_Name
       value: Robot Kyle 2.0

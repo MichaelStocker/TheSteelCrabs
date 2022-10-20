@@ -197,7 +197,7 @@ public class gameManager : MonoBehaviour
         if (!isPaused && SceneManager.GetActiveScene().name != "Main Menu")
         {
             //Does a zoom effect
-            if (Input.GetMouseButton(1))
+            if (playerScript.gunStat.Count > 0 && Input.GetMouseButton(1))
             {
                 ZoomCamera(defaultFOV / zoomMult);
                 scopeMask.SetActive(true);
@@ -216,9 +216,16 @@ public class gameManager : MonoBehaviour
         {
             canTriggerWin = true;
         }
+        
 
         //Floating text always faces player
-        if(triggerAssembly != null) triggerAssembly.transform.LookAt(Camera.main.transform);
+        if (triggerAssembly != null) triggerAssembly.transform.LookAt(Camera.main.transform);
+
+        // Keeps player from falling infinitely off the edge fo the map
+        if (player.transform.position.y < 200)
+        {
+            playerScript.Respawn();
+        }
     }
 
     #region Settings
@@ -290,6 +297,7 @@ public class gameManager : MonoBehaviour
             CursorLockPause();*/
         }
     }
+    
 
     public void PlayerIsDead()
     {

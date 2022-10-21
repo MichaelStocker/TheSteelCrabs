@@ -49,7 +49,7 @@ MonoBehaviour:
   rb: {fileID: -6709086307216626594}
   damage: 1
   bulletSpeed: 35
-  destroyTime: 20
+  destroyTime: 1
 --- !u!135 &1904169460113021992
 SphereCollider:
   m_ObjectHideFlags: 0
